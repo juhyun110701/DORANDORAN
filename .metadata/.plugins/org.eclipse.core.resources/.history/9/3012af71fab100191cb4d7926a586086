@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%>
+<%@page import="javax.naming.*" %>
+<%@page import="javax.sql.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	request.setCharacterEncoding("utf-8");
+
+	String id=request.getParameter("id");
+	
+	String pw=request.getParameter("pw");
+	String pwchk=request.getParameter("pwchk");
+	
+	String tel1=request.getParameter("tel1");
+	String tel2=request.getParameter("tel2");
+	String tel3=request.getParameter("tel3");
+	String tel=tel1+"-"+tel2+"-"+tel3;
+	
+	String email1=request.getParameter("email1");
+	String email2=request.getParameter("email2");
+	String email=email1+"@"+email2;
+	
+	String address=request.getParameter("address");
+	
+	
+	//db연결
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+    String user = "doran";
+    String pass = "1234";
+    Connection conn=null;
+    PreparedStatement pstmt=null;
+    ResultSet rs=null;
+    
+	//db 회원 테이블에 insert하기
+	try{
+    Context init = new InitialContext();
+    DataSource ds =(DataSource)init.lookup("java:comp/env/jdbc/OracleDB");
+    conn=ds.getConnection();
+    
+    pstmt=conn.prepareStatement("insert into member values(?,?,?,?,?,?)");//커넥션풀 방식이다.
+    pstmt.setString(1,id);
+    pstmt.setString(2,pw);
+    pstmt.setString(3,pwchk);
+    pstmt.setString(4,tel);
+    pstmt.setString(5,email);
+    pstmt.setString(6,address);
+    System.out.println("---------------------result------------------");
+    int result = pstmt.executeUpdate();
+    
+    if(result!=0){
+       out.println("<script>");
+       out.println("location.href='loginForm.jsp'");
+       out.println("</script>");
+    }else {
+       out.println("<script>");
+       out.println("location.href='joinForm.jsp'");
+       out.println("</script>");
+    }
+ }catch(Exception e){
+    e.printStackTrace();    
+    }
+ session.setAttribute("id", id); //세션으로 받아와야 한다.
+ response.sendRedirect("main.jsp");
+	//insert into member(id, pw, pwchk, tel)
+%>
+</body>
+</html>

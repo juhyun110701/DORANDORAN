@@ -1,0 +1,5 @@
+package doran.db.connection;
+
+public class DBConnection {
+
+}

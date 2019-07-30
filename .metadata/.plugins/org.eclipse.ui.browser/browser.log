@@ -1,0 +1,82 @@
+
+7월 17, 2019 21:01:32.71 NEW SESSION
+7월 17, 2019 21:01:32.71 [38196:28640:0717/210132.693:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 17, 2019 21:01:32.83 [38196:45716:0717/210132.838:ERROR:browser_process_sub_thread.cc(221)] Waited 81 ms for network service
+7월 17, 2019 21:29:10.07 [38484:2052:0717/212909.793:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 17, 2019 21:29:10.08 [38484:39456:0717/212909.924:ERROR:browser_process_sub_thread.cc(221)] Waited 47 ms for network service
+7월 17, 2019 21:42:39.77 [46712:34228:0717/214239.779:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 17, 2019 21:42:39.86 [46712:45272:0717/214239.869:ERROR:browser_process_sub_thread.cc(221)] Waited 29 ms for network service
+
+7월 20, 2019 14:44:21.08 NEW SESSION
+7월 20, 2019 14:44:21.08 [15456:16324:0720/144418.781:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 20, 2019 15:07:11.26 [15456:16324:0720/150709.702:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 20, 2019 20:49:00.06 [15456:6192:0720/204859.861:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 20, 2019 20:49:00.07 [15456:16324:0720/204859.861:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 20, 2019 20:49:00.11 [15456:6192:0720/204859.879:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 20, 2019 21:43:45.76 [15456:16324:0720/214345.765:ERROR:CONSOLE(1)] "Uncaught SecurityError: Blocked a frame with origin "https://www.google.com" from accessing a frame with origin "chrome-search://local-ntp".  The frame requesting access has a protocol of "https", the frame being accessed has a protocol of "chrome-search". Protocols must match.
+7월 20, 2019 21:43:45.77 ", source: https://www.google.com/?fpdoodle=1&doodle=119274326&hl=ko&gl=kr&ntp=1&nord=1 (1)
+7월 20, 2019 21:51:42.56 [15456:16324:0720/215142.562:ERROR:CONSOLE(1)] "Uncaught SecurityError: Blocked a frame with origin "https://www.google.com" from accessing a frame with origin "chrome-search://local-ntp".  The frame requesting access has a protocol of "https", the frame being accessed has a protocol of "chrome-search". Protocols must match.
+7월 20, 2019 21:51:42.56 ", source: https://www.google.com/?fpdoodle=1&doodle=119274326&hl=ko&gl=kr&ntp=1&nord=1 (1)
+7월 20, 2019 22:06:55.69 [15456:16324:0720/220655.696:ERROR:CONSOLE(1)] "Uncaught SecurityError: Blocked a frame with origin "https://www.google.com" from accessing a frame with origin "chrome-search://local-ntp".  The frame requesting access has a protocol of "https", the frame being accessed has a protocol of "chrome-search". Protocols must match.
+7월 20, 2019 22:06:55.70 ", source: https://www.google.com/?fpdoodle=1&doodle=119274326&hl=ko&gl=kr&ntp=1&nord=1 (1)
+7월 21, 2019 04:29:17.62 [15456:16324:0721/042917.627:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 21, 2019 04:29:19.11 [15456:6192:0721/042917.631:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 21, 2019 04:29:19.11 [15456:6192:0721/042917.639:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+
+7월 21, 2019 17:55:05.79 NEW SESSION
+7월 21, 2019 17:55:05.79 [17472:14048:0721/175505.784:ERROR:CONSOLE(279)] "Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('https://www.youtube.com') does not match the recipient window's origin ('chrome-search://local-ntp').", source: chrome-search://most-visited/single.js (279)
+7월 21, 2019 20:56:52.18 [17472:14048:0721/205652.176:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 21, 2019 20:57:04.07 [17472:5264:0721/205704.078:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+7월 22, 2019 03:49:54.56 [17472:14048:0722/034954.563:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 22, 2019 03:49:57.15 [17472:7740:0722/034954.567:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 22, 2019 03:49:57.16 [17472:7740:0722/034954.599:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 22, 2019 03:50:01.28 [17472:7740:0722/035001.282:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 22, 2019 03:50:07.76 [17472:7740:0722/035007.762:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 22, 2019 19:34:03.39 [17472:5264:0722/193208.322:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+7월 22, 2019 19:34:03.52 [17472:5264:0722/193359.562:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+7월 22, 2019 19:34:08.98 [17472:5264:0722/193408.989:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+7월 22, 2019 21:24:40.96 [17472:14048:0722/212440.720:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 23, 2019 01:43:16.72 [17472:14048:0723/014316.727:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 23, 2019 01:43:18.29 [17472:7740:0723/014316.727:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 01:43:18.29 [17472:7740:0723/014316.735:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 12:26:10.16 [17472:5264:0723/122610.164:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+7월 23, 2019 12:26:10.17 [17472:7740:0723/122610.164:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 12:26:16.50 [17472:5264:0723/122616.501:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+7월 23, 2019 12:26:16.50 [17472:7740:0723/122616.501:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 12:26:20.04 [17472:5264:0723/122620.042:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+7월 23, 2019 12:26:20.04 [17472:7740:0723/122620.042:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 12:27:08.82 [17472:5264:0723/122708.821:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+7월 23, 2019 19:47:51.83 [17472:7740:0723/194751.830:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 19:48:15.03 [17472:5264:0723/194815.035:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+7월 23, 2019 19:48:15.06 [17472:7740:0723/194815.035:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 19:48:21.05 [17472:7740:0723/194821.050:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 19:48:21.07 [17472:14048:0723/194821.054:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 23, 2019 19:49:02.43 [17472:5264:0723/194902.439:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+7월 23, 2019 19:49:06.83 [17472:7740:0723/194906.832:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 19:49:14.69 [17472:14048:0723/194914.695:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 23, 2019 19:50:17.38 [17472:5264:0723/195017.383:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+7월 23, 2019 19:50:17.38 [17472:7740:0723/195017.383:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 23, 2019 19:50:48.87 [17472:14048:0723/195048.876:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+
+7월 25, 2019 19:24:00.74 NEW SESSION
+7월 25, 2019 19:24:00.76 [12980:14596:0725/192400.745:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 25, 2019 19:24:00.79 [12980:10952:0725/192400.792:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 25, 2019 20:48:27.56 [12980:14596:0725/204827.567:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 25, 2019 20:48:27.58 [12980:10952:0725/204827.582:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 25, 2019 20:48:27.58 [12980:10952:0725/204827.582:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 25, 2019 20:48:28.58 [12980:13756:0725/204828.582:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+7월 25, 2019 22:01:11.42 [12980:14596:0725/220111.422:ERROR:http_bridge.cc(110)] NOT IMPLEMENTED
+7월 25, 2019 22:01:11.70 [12980:13756:0725/220111.708:ERROR:browser_process_sub_thread.cc(221)] Waited 23 ms for network service
+
+7월 30, 2019 13:15:03.73 NEW SESSION
+7월 30, 2019 13:15:03.74 [2004:14236:0730/131502.160:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 30, 2019 15:17:32.59 [2004:14236:0730/151732.592:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 30, 2019 15:17:32.62 [2004:17364:0730/151732.621:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 30, 2019 16:57:03.64 [2004:14236:0730/165703.640:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 30, 2019 16:57:16.45 [2004:3628:0730/165716.456:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+7월 30, 2019 16:57:23.22 [2004:3628:0730/165723.221:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+7월 30, 2019 16:57:36.96 [2004:14236:0730/165736.965:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 30, 2019 19:52:49.58 [2004:14236:0730/195249.585:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+7월 30, 2019 19:52:49.58 [2004:17364:0730/195249.585:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 30, 2019 19:52:49.59 [2004:17364:0730/195249.591:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+7월 30, 2019 19:52:58.38 [2004:17364:0730/195258.380:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates

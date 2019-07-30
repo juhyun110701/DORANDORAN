@@ -1,0 +1,146 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>도란도란 : 회원가입</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+    <script>
+    	var id=document.form.id.value;
+    	var pw=document.form.id.value;
+    	var pwchk=document.form.pwchk.value;
+    	var tel1=document.form.tel1.value;
+    	var tel2=document.form.tel2.value;
+    	var tel3=document.form.tel3.value;
+    
+	    var pattern1 = /[0-9]/;	
+	    var pattern2 = /[a-zA-Z]/;
+	    var pattern3 = /[~\$<>&]/;     // *, !, %, @, #, ^
+	    var pw_msg = "";
+    
+	    window.onload=function(){
+			id.focus();
+		}
+		
+	    function check(){
+			if(id==""){
+				alert("아이디를 입력해주세요");
+				id.focus();
+				return;
+			}
+			if(pw==""){
+				alert("비밀번호를 입력해주세요");
+				pw.focus();
+				return;
+			}
+			if(pwchk==""){
+				alert("비밀번호 확인란을 입력해주세요");
+				pwchk.focus();
+				return;
+			}
+			if(tel1=="" || tel2=="" || tel3==""){
+				alert("전화번호를 입력해주세요");
+				document.form.tel1.focus();
+				return;
+			}
+			if(document.form.email1.value=="" || document.form.email2.value==""){
+				alert("이메일을 입력해주세요");
+				document.form.email1.focus();
+				return;
+			}			
+			if(!pattern1.test(pw)||!pattern2.test(pw)||!pattern3.test(pw)||pw.length<8||pw.length>50){
+	            alert("영문+숫자+특수기호 8자리 이상으로 구성하여야 합니다.");
+	            return false;
+	        }
+			if(document.form.pw.value !=document.form.pwchk.value){
+				alert("비밀번호와 비밀번호 확인이 일치하지 않습니다");
+				return;
+			}
+			
+			alert("회원가입이 완료되었습니다");
+			form.submit();	//아이디, 비밀번호 다 입력했을 시 loginProc.jsp로 이동
+		}//function check()
+    </script>
+</head>
+<body onload="form.id.focus()">
+<form name="form" action="signupProc.jsp" method="post">
+    <table id="whole">
+        <tr>
+            <td width="47%"></td>
+            <td width="12%"><a href="index.jsp"><img src="img/logo.png" width="80%"></a></td>
+            <td width="41%"></td>
+        </tr>
+        <tr>
+           <td colspan=3>
+               <div id="box" align="center">
+                   <h1>회원가입</h1>
+                   <p/>
+                   <table>
+                      <tr>
+                          <td>
+                               <font size="5%">아이디</font>
+                          </td>
+                          <td>
+                              <input type="text" name="id" class="text" size=30><p>
+                          </td>
+                       </tr>
+                       <tr>
+                            <td>
+                                <font size="5%">비밀번호</font>
+                            </td>
+                            <td>
+                                <input type="password" name="pw" class="text" size=30><p>
+                            </td>
+                       </tr>
+                       <tr>
+                            <td>
+                                <font size="5%">비밀번호 확인</font>
+                            </td>
+                            <td>
+                                <input type="password" name="pwchk" class="text" size=30><p>
+                            </td>
+                       </tr>
+                       <tr>
+                            <td>
+                                <font size="5%">전화번호</font>
+                            </td>
+                            <td>
+                                <input type="tel" name="tel1" class="text" size=5> <font size="5%">-</font>
+                                <input type="tel" name="tel2" class="text" size=5> <font size="5%">-</font>
+                                <input type="tel" name="tel3" class="text" size=5><p>
+                            </td>
+                       </tr>
+                       <tr>
+                            <td>
+                                <font size="5%">이메일</font>
+                            </td>
+                            <td>
+                                <input type="email" name="email1" class="text" size=15><font size="3%">&nbsp;@&nbsp;</font>
+                                <input type="email" name="email2" class="text" size=15><p>
+                            </td>
+                       </tr>
+                       <tr>
+                            <td>
+                                <font size="5%">주소</font>
+                            </td>
+                            <td>
+                                <input type="text" name="address" class="text" size=40><p>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td colspan=2 align="center">
+                           	<p>
+                           	<input type="button" id="signup" class="btn" value="회원가입" onclick="check()">
+                           </td>
+                       </tr>
+                   </table>
+
+               </div>
+           </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+!SESSION 2019-07-19 17:31:20.700 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-07-19 17:32:25.822
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\주현'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.resources 4 568 2019-07-19 17:32:31.218
+!MESSAGE Could not write metadata for 'F:\dbp_web\dorandoran\.metadata\.plugins\org.eclipse.core.resources\.root\.indexes\properties.index'.
+!STACK 0
+java.io.FileNotFoundException: F:\dbp_web\dorandoran\.metadata\.plugins\org.eclipse.core.resources\.root\.indexes\properties.index (다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.core.internal.localstore.Bucket.save(Bucket.java:347)
+	at org.eclipse.core.internal.properties.PropertyBucket.save(PropertyBucket.java:297)
+	at org.eclipse.core.internal.properties.PropertyManager2.setProperty(PropertyManager2.java:180)
+	at org.eclipse.core.internal.resources.Resource.setPersistentProperty(Resource.java:1726)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.setCacheState(ContentDescriptionManager.java:496)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.invalidateCache(ContentDescriptionManager.java:433)
+	at org.eclipse.core.internal.resources.ContentDescriptionManager.handleEvent(ContentDescriptionManager.java:489)
+	at org.eclipse.core.internal.resources.Workspace.broadcastEvent(Workspace.java:369)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1269)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1280)
+	at org.eclipse.rse.internal.files.ui.resources.SystemRemoteEditManager.createRemoteEditProject(SystemRemoteEditManager.java:363)
+	at org.eclipse.rse.internal.files.ui.resources.SystemRemoteEditManager.getRemoteEditProject(SystemRemoteEditManager.java:284)
+	at org.eclipse.rse.internal.files.ui.Activator$InitRemoteEditJob.run(Activator.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
