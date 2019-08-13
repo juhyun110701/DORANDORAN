@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%>
+<%@ page import="doran.db.connection.DBConnection" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>아이디 중복체크</title>
+</head>
+<body>
+	<%
+		String formid=request.getParameter("id");
+	
+		//db연결
+	    Connection conn=null;
+	    PreparedStatement pstmt=null;
+	    ResultSet rs=null;
+	    
+	    try{
+	    	conn=DBConnection.getCon();
+	    	String sql="select id from member where id='"+formid+"'";
+	    	pstmt=conn.prepareStatement(sql);
+	    	rs=pstmt.executeQuery();
+	    	
+	    	while(rs.next()){
+				out.println(formid+"는 사용할 수 없는 아이디입니다");
+				out.println("<input type='button' class='btn2' value='창닫기' onclick='window.close()'><p>");
+				return;
+	  		}//while
+	  		out.println(formid+"는 사용할 수 있는 아이디입니다");
+	  		
+	    }//try
+	    catch(SQLException e){
+	    	System.out.println(e.getMessage());
+	    }
+	    finally{
+			try{
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			}
+			catch(SQLException e){
+				System.out.println(e.getMessage());
+			}
+		}
+	%>
+</body>
+</html>

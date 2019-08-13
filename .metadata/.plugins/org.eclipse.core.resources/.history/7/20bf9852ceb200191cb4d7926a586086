@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>책 등록</title>
+<link rel="stylesheet" href="css/login.css">
+<link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+</head>
+<body>
+<form name="form" action="loginProc.jsp" method="post">
+    <table id="whole">
+        <tr>
+            <td width="47%"></td>
+            <td width="12%"><a href="index.jsp"><img src="img/logo.png" width="80%"></a></td>
+            <td width="41%"></td>
+        </tr>
+        <tr>
+           <td colspan=3>
+               <div id="box" align="center">
+                   <h1>로그인</h1>
+                   <p/>
+                   <table>
+                      <tr>
+                          <td>
+                               <font size="5%">아이디</font>
+                          </td>
+                          <td>
+                              <input type="text" name="id" class="text" size=30><p>
+                          </td>
+                       </tr>
+                       <tr>
+                            <td>
+                                <font size="5%">비밀번호</font>
+                            </td>
+                            <td>
+                                <input type="password" name="pw" class="text" size=30>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td colspan=2 align="center">
+                           	<p>
+                           	<input type="button" id="login" class="btn" value="로그인" onclick="check()">
+                           	<input type="button" id="signup" class="btn" value="회원가입" onclick="location.href='signup.jsp'">
+                           	<p>
+                           	<p>
+                           	<hr color="#311b1b">
+                           </td>
+                       </tr>
+                       <tr>
+                       		<td colspan=2 align="center">
+                       			<input type="button" id="idforget" class="btn" value="아이디 찾기" onclick="location.href='idforget.jsp'">
+                       		    <input type="button" id="pwforget" class="btn" value="비밀번호 찾기" onclick="location.href='pwforget.jsp'">
+                       		</td>
+                       </tr>
+                   </table>
+
+               </div>
+           </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

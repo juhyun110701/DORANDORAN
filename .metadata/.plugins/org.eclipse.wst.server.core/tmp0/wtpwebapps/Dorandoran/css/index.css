@@ -24,6 +24,12 @@ a{
     color:#ed6853;
 }
 
+#logout{
+	background-color:transparent;
+	border:none;
+	outline:none;
+}
+
 .menu{
     background-color:#311b1b;
     text-align:center;

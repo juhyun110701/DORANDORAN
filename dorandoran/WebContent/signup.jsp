@@ -1,12 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.sql.*"%>
+<%@ page import="doran.db.connection.DBConnection" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>도란도란 : 회원가입</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/signup.css">
     <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+    <style>
+    	.btn2{
+    		background-color:#311b1b;
+    		color:lightgoldenrodyellow;
+    		border:0;
+			outline:0;
+			border-radius:5px;
+			padding:2%;
+    	}
+    </style>
     <script>
 	    var pattern1 = /[0-9]/;	
 	    var pattern2 = /[a-zA-Z]/;
@@ -17,6 +28,22 @@
 	    window.onload=function(){
 			document.form.id.focus();
 		}
+	    
+	    function inputIdChk(){
+	    	document.form.idDuplication.value="uncheck";
+	    }
+	    
+	    function idchk(inputid){
+	    	if(document.form.id.value==""){
+				alert("아이디를 입력해주세요");
+				document.form.id.focus();
+				return;
+			}
+	    	window.name="form";
+	    	var popupX = (window.screen.width/2)-(400/2);
+	    	var popupY= (window.screen.height/2)-(200/2);
+	    	window.open("idDupChk.jsp?id="+document.form.id.value,"chkForm","width=400, height=200, resizable=no, scrollbars=no, left="+popupX+", top="+popupY);
+	    }
 		
 	    function check(){
 			if(document.form.id.value==""){
@@ -24,6 +51,12 @@
 				document.form.id.focus();
 				return;
 			}
+			
+			/*if(document.form.idDuplication.value=="uncheck"){
+				alert("아이디 중복을 확인해주세요");
+				return;
+			}*/
+			
 			if(document.form.pw.value==""){
 				alert("비밀번호를 입력해주세요");
 				document.form.pw.focus();
@@ -72,7 +105,7 @@
         <tr>
            <td colspan=3>
                <div id="box" align="center">
-                   <h1>회원가입</h1>
+                   <h1>회원가입</h1>	
                    <p/>
                    <table>
                       <tr>
@@ -80,7 +113,9 @@
                                <font size="5%">아이디</font>
                           </td>
                           <td>
-                              <input type="text" name="id" class="text" size=30><p>
+                              <input type="text" name="id" class="text" size=30 onkeydown="inputIdChk()"> 
+                              <input type="button" class="btn2" value="중복체크" onclick="idchk(this.form)"><p>
+                              <!-- <input type="hidden" name="idDuplication" value="uncheck"> -->
                           </td>
                        </tr>
                        <tr>

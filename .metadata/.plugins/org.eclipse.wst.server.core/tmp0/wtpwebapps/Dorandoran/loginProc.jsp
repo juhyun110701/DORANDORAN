@@ -27,7 +27,7 @@
     	pstmt=conn.prepareStatement(sql);
     	rs=pstmt.executeQuery();
     	
-    	while(rs.next()){
+    	if(rs.next()){
   			//isLogin=true;
     		%>
   			<script>
@@ -38,8 +38,13 @@
   			</script>
   				  			
 <%
-  		}//while
-  		
+  		}//if
+    	else{%>
+    		<script>
+    			alert("회원 정보가 올바르지 않습니다");
+    			location.href="login.jsp";
+    		</script>
+<%    	}
   		
     }//try
     catch(SQLException e){
@@ -55,13 +60,6 @@
 			System.out.println(e.getMessage());
 		}
 	}
-	//if(id.equals(디비에서 불러온 id값) && pw.equals(디비에서 불러온 id값))
-	//세션 값 설정해주고
-	//메인 페이지로 이동
-	
-	//else
-	//alert창 띄우고
-	//로그인 창 다시 불러옴
 %>
 
 </body>

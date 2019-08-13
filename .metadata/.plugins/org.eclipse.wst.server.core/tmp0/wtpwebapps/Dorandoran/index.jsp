@@ -15,33 +15,61 @@
 </head>
 <body>
 <jsp:include page="top.jsp" flush="false"/><p>
-<%--
-    Connection conn=null;
-    PreparedStatement pstmt=null;
-    ResultSet rs=null;
-   
-    
-    pstmt=conn.prepareStatement("select * from BOOK");
-    rs=pstmt.executeQuery();
-    out.println("<table border=\"1\" style=\"color:black;\">");
-    while(rs.next()){
-        out.println("<tr>");
-        out.println("<td>"+rs.getString("title")+"</td>");
-        log(rs.getString("title"));
-        out.println("<td>"+rs.getString("writer")+"</td>");
-        out.println("<td>"+rs.getString("publisher")+"</td>");
-        out.println("<td>"+rs.getString("publish_date")+"</td>");
-        out.println("<td>"+rs.getString("stock")+"</td>");
-        out.println("<td>"+rs.getString("price")+"</td>");
-        out.println("<td>"+rs.getString("genre")+"</td>");
-        out.println("<td>"+rs.getString("translator")+"</td>");
-        out.println("<td>"+rs.getString("review1")+"</td>");
-        out.println("<td>"+rs.getString("review2")+"</td>");
-        out.println("</tr>");
+<%
+	//db연결
+	Connection conn=null;
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	
+	try{
+    	conn=DBConnection.getCon();
+    	String sql="select * from book";
+    	pstmt=conn.prepareStatement(sql);
+    	rs=pstmt.executeQuery();%>
+		
+		<table>
+			<tr>
+				<td>제목</td>
+				<td>작가</td>
+				<td>출판사</td>
+				<td>출판일</td>
+				<td>재고</td>
+				<td>가격</td>
+				<td>장르</td>
+				<td>번역자</td>
+				<td>리뷰1</td>
+				<td>리뷰2</td>
+				<td>이미지</td>
+			</tr>
+			<%
+				int i=1;
+				while(rs.next()){%>
+					<tr>
+						<%while(i<=11){ %>
+							<td><%=rs.getString(i) %></td>
+						<%
+							i++;
+						} %>
+					</tr>				
+<%					i=1;
+				}
+			%>
+		</table>
+		    	
+<%}//try
+    catch(SQLException e){
+    	System.out.println(e.getMessage());
     }
-    out.println("</table>");
-     
-    conn.close();
---%>
+    finally{
+		try{
+			if(rs!=null) rs.close();
+			if(pstmt!=null) pstmt.close();
+			if(conn!=null) conn.close();
+		}
+		catch(SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+%>
 </body>
 </html>
