@@ -27,7 +27,7 @@ function maxLengthCheck(object){
 	//db연결
 	Connection conn=null;
     PreparedStatement pstmt=null;
-    String sql="select * from book where ";
+    //String sql="select * from book where ";
 %>
 <div id="box" align="center">
 <table border=1 id="whole">

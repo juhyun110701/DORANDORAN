@@ -45,10 +45,10 @@
                 <table width="100%" height="50px">
                     <tr>
                        <td width="30%"></td>
-                        <td class="menu_in"><a href="index.html">전체도서</a></td>
-                        <td class="menu_in"><a href="#">신간도서</a></td>
-                        <td class="menu_in"><a href="#">중고도서</a></td>
-                        <td class="menu_in"><a href="#">마이페이지</a></td>
+                        <td class="menu_in"><a href="index.jsp">전체도서</a></td>
+                        <td class="menu_in"><a href="newBook.jsp">신간도서</a></td>
+                        <td class="menu_in"><a href="oldBook.jsp">중고도서</a></td>
+                        <td class="menu_in"><a href="toMyPage.jsp?id=<%=id%>">마이페이지</a></td>
                         <td width="30%"></td>
                     </tr>
                 </table></td>
