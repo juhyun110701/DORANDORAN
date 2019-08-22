@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" import="java.sql.*"%>
 <%@ page import="doran.db.connection.DBConnection" %>
+<%@ page import="java.io.*" %>
+<%@ page import="oracle.sql.*" %>
+<%@ page import="oracle.jdbc.driver.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,6 +22,9 @@
 	int price=Integer.parseInt(request.getParameter("price"));
 	int genre=Integer.parseInt(request.getParameter("genre"));
 	String translator=request.getParameter("translator");
+	
+	String path=request.getParameter("image");
+	
 	
 	String genree="";
 	
@@ -39,7 +45,10 @@
 	//db연결
 	Connection conn=null;
 	PreparedStatement pstmt=null;
-	String sql="insert into book(title, writer, publisher, publish_date, stock, price, genre, translator) values(?,?,?,?,?,?,?,?)";
+	ResultSet rs=null;
+	
+	String sql="insert into book(title, writer, publisher, publish_date, stock, price, genre, translator, image) values(?,?,?,?,?,?,?,?,empty_blob())";
+	//String sql2="select image from book where title='"+title+"'";
 	int n=0;
 	
 	try{
@@ -53,8 +62,27 @@
 		pstmt.setInt(6,price);
 		pstmt.setString(7,genree);
 		pstmt.setString(8,translator);
-		
 		n=pstmt.executeUpdate();
+
+		/*pstmt=conn.prepareStatement(sql2);
+		if(rs.next()){
+			BLOB blob=null;
+			BufferedOutputStream out=null;
+			BufferedInputStream in=null;
+			byte[] buf=null;
+			int bytesRead=0;
+			blob=((OracleResultsSet)rs).getBLOB(1);
+			out=new BufferedOutputStream(blob.getBinaryOuputStream());
+			in=new BufferedInputStream(new StringBufferInputStream(str));
+			int nFileSize=(int)str.length();
+			buf=new byte[nFileSize];
+			
+			while((bytesRead=in.read(buf))!=-1){
+				out.writer(buf, 0, bytesRead);
+			}
+			in.close();
+			out.close();
+		}*/
 	}
 	catch(SQLException e){
 		System.out.println(e.getMessage());

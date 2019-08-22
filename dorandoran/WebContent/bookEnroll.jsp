@@ -49,7 +49,7 @@
                                <font size="5%">이미지</font>
                           	</td>
                       		<td>
-                              <input type="file" name="file"><p>
+                              <input type="file" name="image"><p>
                           	</td>
                       </tr>
                       <tr>	

@@ -37,23 +37,22 @@
 				<td>가격</td>
 				<td>장르</td>
 				<td>번역자</td>
-				<td>리뷰1</td>
-				<td>리뷰2</td>
 				<td>이미지</td>
 			</tr>
 			<%
-				int i=1;
-				while(rs.next()){%>
-					<tr>
-						<%while(i<=11){ %>
-							<td><%=rs.getString(i) %></td>
-						<%
-							i++;
-						} %>
-					</tr>				
-<%					i=1;
-				}
-			%>
+			while(rs.next()){%>
+				<tr>
+					<td><%=rs.getString("title") %></td>
+					<td><%=rs.getString("writer") %></td>
+					<td><%=rs.getString("publisher") %></td>
+					<td><%=rs.getString("publish_date") %></td>
+					<td><%=rs.getInt("stock") %></td>
+					<td><%=rs.getInt("price") %></td>
+					<td><%=rs.getString("genre") %></td>
+					<td><%=rs.getString("translator") %></td>
+					
+				</tr>	
+			<%}%>
 		</table>
 		    	
 <%}//try
