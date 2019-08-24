@@ -236,3 +236,31 @@
 8월 11, 2019 22:35:26.45 [10400:14120:0811/223526.453:ERROR:checkin_request.cc(219)] Failed to get checkin response. Fetcher failed. Retrying.
 8월 11, 2019 22:36:08.51 [10400:14120:0811/223608.511:ERROR:checkin_request.cc(219)] Failed to get checkin response. Fetcher failed. Retrying.
 8월 11, 2019 22:36:31.97 [10400:884:0811/223631.973:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+
+8월 22, 2019 23:01:59.28 NEW SESSION
+8월 22, 2019 23:01:59.28 [4624:5148:0822/230159.278:ERROR:browser_process_sub_thread.cc(203)] Waited 21 ms for network service
+8월 22, 2019 23:22:55.82 [10352:9808:0822/232255.825:ERROR:browser_process_sub_thread.cc(203)] Waited 32 ms for network service
+8월 24, 2019 16:56:40.36 [14484:15048:0824/165640.363:ERROR:browser_process_sub_thread.cc(203)] Waited 22 ms for network service
+
+8월 24, 2019 17:04:16.16 NEW SESSION
+8월 24, 2019 17:04:16.16 [7756:2384:0824/170416.161:ERROR:browser_process_sub_thread.cc(203)] Waited 20 ms for network service
+8월 24, 2019 17:05:38.85 [9528:15484:0824/170538.856:ERROR:browser_process_sub_thread.cc(203)] Waited 47 ms for network service
+8월 24, 2019 17:08:22.58 [2628:15344:0824/170822.584:ERROR:browser_process_sub_thread.cc(203)] Waited 33 ms for network service
+8월 24, 2019 17:09:22.47 [12272:7248:0824/170922.478:ERROR:browser_process_sub_thread.cc(203)] Waited 20 ms for network service
+
+8월 24, 2019 17:11:25.24 NEW SESSION
+8월 24, 2019 17:11:25.24 [14512:11320:0824/171125.238:ERROR:browser_process_sub_thread.cc(203)] Waited 22 ms for network service
+
+8월 24, 2019 17:38:05.44 NEW SESSION
+8월 24, 2019 17:38:05.44 [13024:11056:0824/173805.444:ERROR:browser_process_sub_thread.cc(203)] Waited 18 ms for network service
+8월 24, 2019 17:45:09.89 [14996:7556:0824/174509.894:ERROR:browser_process_sub_thread.cc(203)] Waited 18 ms for network service
+8월 24, 2019 18:45:02.24 [10572:7868:0824/184502.243:ERROR:browser_process_sub_thread.cc(203)] Waited 27 ms for network service
+8월 24, 2019 18:45:20.84 [12524:15288:0824/184520.847:ERROR:browser_process_sub_thread.cc(203)] Waited 27 ms for network service
+8월 24, 2019 19:31:33.46 [5644:15616:0824/193133.461:ERROR:browser_process_sub_thread.cc(203)] Waited 18 ms for network service
+8월 24, 2019 19:37:01.08 [7036:10248:0824/193701.088:ERROR:browser_process_sub_thread.cc(203)] Waited 21 ms for network service
+8월 24, 2019 19:42:17.90 [14904:8396:0824/194217.901:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8월 24, 2019 19:58:56.52 [14904:8396:0824/195856.528:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8월 24, 2019 22:08:49.57 [14904:7680:0824/220849.577:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+8월 24, 2019 22:08:50.07 [14904:14536:0824/220850.077:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+8월 24, 2019 22:09:00.39 [14904:14536:0824/220900.392:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+8월 24, 2019 22:24:15.26 [14904:8396:0824/222415.267:ERROR:browser_process_sub_thread.cc(203)] Waited 33 ms for network service

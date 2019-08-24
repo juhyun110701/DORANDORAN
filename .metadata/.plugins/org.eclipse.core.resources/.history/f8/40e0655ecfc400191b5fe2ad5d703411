@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>도란도란 : 마이페이지</title>
+<link rel="stylesheet" href="css/myPage.css">
+<link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+</head>
+<body>
+<jsp:include page="top.jsp" flush="false"/><p>
+<%
+	request.setCharacterEncoding("utf-8");
+	String id=request.getParameter("id");
+%>
+<table id="whole">
+        <tr>
+           <td width="30%">
+               <div id="box1" align="center">
+                   <p/>
+                   <table>
+                      <tr>
+                        <td style="font-size:10%;">마이페이지</td>
+                      </tr>
+                      <tr>
+                      	<td><%=id %>님 환영합니다 :)
+                      </tr>
+                      <tr>
+                      	<td>구매건수 : </td>
+                      </tr>
+                      <tr>
+                      	<td>판매권수 : </td>
+                      </tr>
+                   </table>
+               </div>
+           </td>
+           <td>
+               <div id="box2" align="center">
+                   <p/>
+                   <table>
+                      <tr>
+                         	<td>
+                         		<%=id %>님의 페이지
+                         	</td>
+                         	<td>
+                         		판매권수 : 
+                         	</td>
+                         	<td>
+                         		구매건수 : 
+                         	</td>
+                      </tr>
+                   </table>
+               </div>
+           </td>
+        </tr>
+</table>
+</body>
+</html>
