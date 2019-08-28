@@ -264,3 +264,12 @@
 8월 24, 2019 22:08:50.07 [14904:14536:0824/220850.077:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
 8월 24, 2019 22:09:00.39 [14904:14536:0824/220900.392:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
 8월 24, 2019 22:24:15.26 [14904:8396:0824/222415.267:ERROR:browser_process_sub_thread.cc(203)] Waited 33 ms for network service
+
+8월 28, 2019 09:32:56.96 NEW SESSION
+8월 28, 2019 09:32:56.96 [10268:13832:0828/093256.962:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Invalid credentials (credentials rejected by server).
+8월 28, 2019 10:10:55.29 [10268:13552:0828/101055.299:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8월 28, 2019 12:37:23.69 [10268:13832:0828/123723.690:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+8월 28, 2019 12:39:26.19 [10268:13552:0828/123926.192:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+8월 28, 2019 12:41:44.20 [10268:13552:0828/124144.205:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8월 28, 2019 13:11:54.46 [10268:13552:0828/131154.458:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8월 28, 2019 13:12:43.58 [10268:13552:0828/131243.582:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -118
