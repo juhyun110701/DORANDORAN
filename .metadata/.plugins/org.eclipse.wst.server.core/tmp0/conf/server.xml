@@ -151,7 +151,7 @@
 
       <Context docBase="D:\0mirim\dbp\dbp_web\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\0mirim\dbp\dbp_web\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Dorandoran" path="/Dorandoran" reloadable="true" source="org.eclipse.jst.jee.server:Dorandoran">
 <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="50" maxWait="5000" name="jdbc/Oracle11g" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="doran"/>
-</Context></Host>
+</Context><Context docBase="D:\0mirim\dbp\dbp_web\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\imgProj" path="/imgProj" reloadable="true" source="org.eclipse.jst.jee.server:imgProj"/></Host>
     </Engine>
   </Service>
 </Server>

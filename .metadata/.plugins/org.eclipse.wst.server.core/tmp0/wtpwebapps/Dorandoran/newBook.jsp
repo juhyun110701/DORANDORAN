@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false"/><p>
+
 <%
 	//db연결
 	Connection conn=null;

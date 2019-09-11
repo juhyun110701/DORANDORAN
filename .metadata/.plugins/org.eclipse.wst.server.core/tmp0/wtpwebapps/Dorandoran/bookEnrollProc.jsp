@@ -4,6 +4,10 @@
 <%@ page import="java.io.*" %>
 <%@ page import="oracle.sql.*" %>
 <%@ page import="oracle.jdbc.driver.*" %>
+<%@page import="org.apache.commons.io.FileUtils"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,88 +17,62 @@
 <body>
 <%
 	request.setCharacterEncoding("utf-8");
+	
 
-	String title=request.getParameter("title");
-	String writer=request.getParameter("writer");
-	String publisher=request.getParameter("publisher");
-	String publish_date=request.getParameter("publish_date");
-	int amount=Integer.parseInt(request.getParameter("amount"));
-	int price=Integer.parseInt(request.getParameter("price"));
-	int genre=Integer.parseInt(request.getParameter("genre"));
-	String translator=request.getParameter("translator");
+	String uploadPath=request.getRealPath("/uploadFile");
+	out.println("절대 경로 : "+uploadPath+"<br>");
 	
-	String path=request.getParameter("image");
+	int maxSize=1024*1024*10;
 	
+	String title="", writer="", publisher="", publish_date="";
+	String stock="", price="", genre="", translator="";
 	
-	String genree="";
+	String fileName1="";//중복처리된 이름
+	String originalName1="";//중복 처리 전 실제 원본 이름
+	long fileSize=0;//파일 사이즈
+	String fileType="";//파일 타입
+	int n=5;
 	
-	switch(genre){
-		case 0 : genree="총류"; break;
-		case 1 : genree="철학"; break;
-		case 2 : genree="종교"; break;
-		case 3 : genree="사회과학"; break;
-		case 4 : genree="순수과학"; break;
-		case 5 : genree="기술과학"; break;
-		case 6 : genree="예술"; break;
-		case 7 : genree="언어"; break;
-		case 8 : genree="문학"; break;
-		case 9 : genree="역사"; break;
-		default: genree="분류 없음"; break;
-	}
-	
-	//db연결
-	Connection conn=null;
-	PreparedStatement pstmt=null;
-	ResultSet rs=null;
-	
-	String sql="insert into book(title, writer, publisher, publish_date, stock, price, genre, translator, image) values(?,?,?,?,?,?,?,?,empty_blob())";
-	//String sql2="select image from book where title='"+title+"'";
-	int n=0;
+	File file=null;
 	
 	try{
-		conn=DBConnection.getCon();
-		pstmt=conn.prepareStatement(sql);
+		MultipartRequest multi=new MultipartRequest(request, uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
+		
+		title=multi.getParameter("title");
+		writer=multi.getParameter("writer");
+		publisher=multi.getParameter("publisher");
+		publish_date=multi.getParameter("publish_date");
+		genre=multi.getParameter("genre");
+		translator=multi.getParameter("translator");
+		stock=multi.getParameter("stock");
+		price=multi.getParameter("price");
+		out.println(stock);
+		out.println(title);
+		
+		file=multi.getFile("file");
+		
+		Connection conn=DBConnection.getCon();
+		PreparedStatement pstmt=null;
+		
+		StringBuffer sql=new StringBuffer("insert into book(title, writer, publisher, publish_date, stock, price, genre, translator, image) values(?,?,?,?,?,?,?,?,?)");
+		byte[] buf=FileUtils.readFileToByteArray(file);
+		pstmt = conn.prepareStatement(sql.toString());
+		
 		pstmt.setString(1,title);
-		pstmt.setString(2,writer);
-		pstmt.setString(3,publisher);
-		pstmt.setString(4,publish_date);
-		pstmt.setInt(5,amount);
-		pstmt.setInt(6,price);
-		pstmt.setString(7,genree);
-		pstmt.setString(8,translator);
-		n=pstmt.executeUpdate();
-
-		/*pstmt=conn.prepareStatement(sql2);
-		if(rs.next()){
-			BLOB blob=null;
-			BufferedOutputStream out=null;
-			BufferedInputStream in=null;
-			byte[] buf=null;
-			int bytesRead=0;
-			blob=((OracleResultsSet)rs).getBLOB(1);
-			out=new BufferedOutputStream(blob.getBinaryOuputStream());
-			in=new BufferedInputStream(new StringBufferInputStream(str));
-			int nFileSize=(int)str.length();
-			buf=new byte[nFileSize];
-			
-			while((bytesRead=in.read(buf))!=-1){
-				out.writer(buf, 0, bytesRead);
-			}
-			in.close();
-			out.close();
-		}*/
+		pstmt.setString(2, writer);
+		pstmt.setString(3, publisher);
+		pstmt.setString(4, publish_date);
+		pstmt.setString(5, stock);
+		pstmt.setString(6, price);
+		pstmt.setString(7, genre);
+		pstmt.setString(8, translator);
+		pstmt.setBytes(9, buf);
+		pstmt.addBatch();
+		pstmt.clearParameters();
+		pstmt.executeBatch();
 	}
-	catch(SQLException e){
-		System.out.println(e.getMessage());
-	}
-	finally{
-		try{
-			if(pstmt!=null) pstmt.close();
-			if(conn!=null) conn.close();
-		}
-		catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
+	catch(Exception e){
+		e.printStackTrace();
 	}
 %>
 <script>

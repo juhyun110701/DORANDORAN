@@ -28,7 +28,8 @@
 </script>
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false"/><p><br>
+<jsp:include page="top.jsp" flush="false"/><p>
+<p>
 <form name="form" action="oldBookEnrollProc.jsp" method="post">
     <table id="whole">
         <tr>
@@ -100,13 +101,7 @@
                             <td>
                                 <input type="text" name="price" class="text" size=30><p>
                             </td>
-                            <td width="10%"></td>
-                            <td>
-                                <font size="5%">옮긴이</font>
-                            </td>
-                            <td>
-                                <input type="text" name="translator" class="text" size=30><p>
-                            </td>
+                            
                        </tr>
                        <tr>
                            <td colspan=5 align="center">

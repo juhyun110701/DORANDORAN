@@ -18,14 +18,11 @@
 	String writer=request.getParameter("writer");
 	String publisher=request.getParameter("publisher");
 	String publish_date=request.getParameter("publish_date");
-	int amount=Integer.parseInt(request.getParameter("amount"));
 	int price=Integer.parseInt(request.getParameter("price"));
 	int genre=Integer.parseInt(request.getParameter("genre"));
-	String translator=request.getParameter("translator");
-	
 	String path=request.getParameter("image");
-	
-	
+	String id=(String)session.getAttribute("id");
+		
 	String genree="";
 	
 	switch(genre){
@@ -46,8 +43,8 @@
 	Connection conn=null;
 	PreparedStatement pstmt=null;
 	ResultSet rs=null;
-	
-	String sql="insert into old_book(title, writer, publisher, publish_date, price, genre, image) values(?,?,?,?,?,?,empty_blob())";
+		
+	String sql="insert into old_book(title, writer, publisher, publish_date, price, genre, seller, image) values(?,?,?,?,?,?,?,empty_blob())";
 	//String sql2="select image from book where title='"+title+"'";
 	int n=0;
 	
@@ -60,6 +57,7 @@
 		pstmt.setString(4,publish_date);
 		pstmt.setInt(5,price);
 		pstmt.setString(6,genree);
+		pstmt.setString(7, id);
 		n=pstmt.executeUpdate();
 
 		/*pstmt=conn.prepareStatement(sql2);

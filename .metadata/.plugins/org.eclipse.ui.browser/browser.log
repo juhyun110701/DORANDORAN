@@ -273,3 +273,12 @@
 8월 28, 2019 12:41:44.20 [10268:13552:0828/124144.205:ERROR:socket_stream.cc(219)] Closing stream with result -2
 8월 28, 2019 13:11:54.46 [10268:13552:0828/131154.458:ERROR:socket_stream.cc(219)] Closing stream with result -2
 8월 28, 2019 13:12:43.58 [10268:13552:0828/131243.582:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -118
+
+8월 29, 2019 12:09:48.01 NEW SESSION
+8월 29, 2019 12:09:48.01 [19680:18800:0829/120948.003:ERROR:socket_stream.cc(219)] Closing stream with result -2
+8월 29, 2019 12:47:29.59 [19680:16476:0829/124729.591:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+8월 29, 2019 12:47:30.56 [19680:18800:0829/124730.562:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+8월 29, 2019 12:47:34.69 [19680:18800:0829/124734.692:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+
+8월 29, 2019 22:17:08.07 NEW SESSION
+8월 29, 2019 22:17:08.07 [11560:9264:0829/221708.070:ERROR:browser_process_sub_thread.cc(203)] Waited 272 ms for network service

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
 <%@ page import="doran.db.connection.DBConnection" %>
+
+<%@page import="org.apache.commons.io.output.ByteArrayOutputStream"%>
+<%@page import="java.io.*"%>
+<%@page import="java.awt.image.BufferedImage"%>
+<%@page import="javax.imageio.ImageIO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,63 +17,85 @@
 -->
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+<style>
+img{
+	width:200px;
+	height:300px;
+}
+</style>
 </head>
 <body>
 <jsp:include page="top.jsp" flush="false"/><p>
-<%
-	//db연결
-	Connection conn=null;
-	PreparedStatement pstmt=null;
-	ResultSet rs=null;
-	
-	try{
-    	conn=DBConnection.getCon();
-    	String sql="select * from book";
-    	pstmt=conn.prepareStatement(sql);
-    	rs=pstmt.executeQuery();%>
-		
-		<table>
-			<tr>
-				<td>제목</td>
-				<td>작가</td>
-				<td>출판사</td>
-				<td>출판일</td>
-				<td>재고</td>
-				<td>가격</td>
-				<td>장르</td>
-				<td>번역자</td>
-				<td>이미지</td>
-			</tr>
-			<%
-			while(rs.next()){%>
-				<tr>
-					<td><%=rs.getString("title") %></td>
-					<td><%=rs.getString("writer") %></td>
-					<td><%=rs.getString("publisher") %></td>
-					<td><%=rs.getString("publish_date") %></td>
-					<td><%=rs.getInt("stock") %></td>
-					<td><%=rs.getInt("price") %></td>
-					<td><%=rs.getString("genre") %></td>
-					<td><%=rs.getString("translator") %></td>
+<p></p>
+<table id="whole">
+	<tr>
+		<td>
+			<div id="box" align="center">
+				<%
+					//db연결
+					Connection conn=null;
+					PreparedStatement pstmt=null;
+					ResultSet rs=null;
 					
-				</tr>	
-			<%}%>
-		</table>
-		    	
-<%}//try
-    catch(SQLException e){
-    	System.out.println(e.getMessage());
-    }
-    finally{
-		try{
-			if(rs!=null) rs.close();
-			if(pstmt!=null) pstmt.close();
-			if(conn!=null) conn.close();
-		}
-		catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-	}
-%>
+					String sql="select title, writer, price from book";
+					int count=1;
+					
+					try{
+						conn=DBConnection.getCon();
+						pstmt=conn.prepareStatement(sql);
+						rs=pstmt.executeQuery();
+						%>
+						<table width="80%" align="center" id="books">
+							<%
+								while(rs.next()){
+									if(count%3==1){%>
+									<tr>	
+										<td width="5%"></td>
+										<td width="30%" align="center">
+											<img src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+											<b><%=rs.getString("title") %></b><br>
+											<%=rs.getString("writer") %><br>
+										</td>								
+								<%	}//if
+									else if(count%3==2){%>
+										<td width="30%" align="center">
+										<img src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+										<b><%=rs.getString("title") %></b><br>
+										<%=rs.getString("writer") %><br>
+										</td>
+									<%}
+									else{%>
+											<td width="30%" align="center">
+												<img src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+												<b><%=rs.getString("title") %></b><br>
+												<%=rs.getString("writer") %><br>
+											</td>
+											<td width="5%"></td>
+											<p></p>
+										</tr>
+									<%}
+									count++;
+								}//while
+							%>
+						</table>
+						<%
+					}
+					catch(SQLException e){
+						System.out.println(e.getMessage());
+					}
+					finally{
+						try{
+							if(pstmt!=null) pstmt.close();
+							if(conn!=null) conn.close();
+						}
+						catch(SQLException e){
+							System.out.println(e.getMessage());
+						}
+					}
+				%>
+			</div>
+		</td>
+	</tr>
+</table>
 </body>
 </html>

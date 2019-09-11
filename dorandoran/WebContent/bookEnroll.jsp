@@ -23,13 +23,14 @@
 				document.form.pw.focus();
 				return;
 			}*/
+			document.forms['form'].encoding="multipart/form-data";
 			document.forms['form'].submit();	//아이디, 비밀번호 다 입력했을 시 loginProc.jsp로 이동
 		}//function check()
 </script>
 </head>
 <body>
 <jsp:include page="top.jsp" flush="false"/><p><br>
-<form name="form" action="bookEnrollProc.jsp" method="post">
+<form name="form" action="bookEnrollProc.jsp" method="post" enctype="multipart/form-data">
     <table id="whole">
         <tr>
            <td colspan=3>
@@ -49,7 +50,7 @@
                                <font size="5%">이미지</font>
                           	</td>
                       		<td>
-                              <input type="file" name="image"><p>
+                              <input type="file" name="file"><p>
                           	</td>
                       </tr>
                       <tr>	
@@ -98,7 +99,7 @@
                                 <font size="5%">수량</font>
                             </td>
                             <td>
-                                <input type="text" name="amount" class="text" size=30><p>
+                                <input type="text" name="stock" class="text" size=30><p>
                             </td>
                        		<td width="10%"></td>
                             <td>

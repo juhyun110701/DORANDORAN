@@ -28,6 +28,7 @@
     </script>
 </head>
 <body>
+
 <form name="form" action="loginProc.jsp" method="post">
     <table id="whole">
         <tr>

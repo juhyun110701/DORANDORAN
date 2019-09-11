@@ -24,7 +24,7 @@
             	<%
                 	if(session.getAttribute("id")==null){
                 %>
-                		<a href="login.jsp" class="top_menu" style="color:#f54e42;">로그인</a>&nbsp;
+                		<a href="login.jsp" class="top_menu" style="color:#f54e42;" target="_top">로그인</a>&nbsp;
                 <%
                 	}
                 	else{
@@ -36,7 +36,7 @@
                 		response.sendRedirect("index.jsp");
                 	}
                 %>
-                <a href="signup.jsp" class="top_menu">회원가입</a><p>
+                <a href="signup.jsp" class="top_menu" target="_top">회원가입</a><p>
                 
             </td>
         </tr>
@@ -45,10 +45,10 @@
                 <table width="100%" height="50px">
                     <tr>
                        <td width="30%"></td>
-                        <td class="menu_in"><a href="index.jsp">전체도서</a></td>
-                        <td class="menu_in"><a href="newBook.jsp">신간도서</a></td>
-                        <td class="menu_in"><a href="oldBook.jsp">중고도서</a></td>
-                        <td class="menu_in"><a href="toMyPage.jsp?id=<%=id%>">마이페이지</a></td>
+                        <td class="menu_in"><a href="main.jsp" target="area">전체도서</a></td>
+                        <td class="menu_in"><a href="newBook.jsp" target="area">신간도서</a></td>
+                        <td class="menu_in"><a href="oldBookEnroll.jsp" target="area">중고도서</a></td>
+                        <td class="menu_in"><a href="toMyPage.jsp?id=<%=id%>" target="area">마이페이지</a></td>
                         <td width="30%"></td>
                     </tr>
                 </table></td>

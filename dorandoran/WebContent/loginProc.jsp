@@ -35,6 +35,7 @@
   				alert(id+"님 로그인되었습니다");
   				<%session.setAttribute("id", id); //세션%>
   				location.href="index.jsp";
+  				location.target="area";
   			</script>
   				  			
 <%
