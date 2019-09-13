@@ -79,7 +79,7 @@
 	var title="<%=title%>";
 	if(<%=n%>>0){
 		alert("책 \'"+title+"\'이 등록되었습니다 :)");
-		location.href="index.jsp";
+		location.href="indexx.jsp";
 	}
 	else{
 		alert("책 등록에 실패하였습니다 :(");

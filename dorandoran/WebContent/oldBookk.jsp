@@ -17,12 +17,6 @@
 -->
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
-<script>
-	function login(){
-		alert("로그인 후 이용하실 수 있습니다");
-		return ;
-	}
-</script>
 <style>
 .thumbnail{
 	width:200px;
@@ -37,7 +31,7 @@ b:hover{
 </style>
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false"/><p>
+<jsp:include page="topp.jsp" flush="false"/><p>
 <p></p>
 <table id="whole">
 	<tr>
@@ -50,7 +44,7 @@ b:hover{
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select title, writer, price from book";
+					String sql="select title, writer, price from old_book";
 					int count=1;
 					
 					try{
@@ -65,28 +59,28 @@ b:hover{
 									<tr>	
 										<td width="5%"></td>
 										<td width="30%" align="center">
-											<a onclick="login()" class="link">
-												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+											<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
+												<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
 												<b><%=rs.getString("title") %></b><br>
-												<%=rs.getString("writer") %><br>
+												<%=rs.getString("price") %><br>
 											</a>
 										</td>								
 								<%	}//if
 									else if(count%3==2){%>
 										<td width="30%" align="center">
-										<a onclick="login()" class="link">
-										<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+										<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
+										<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
 										<b><%=rs.getString("title") %></b><br>
-										<%=rs.getString("writer") %><br>
+										<%=rs.getString("price") %><br>
 										</a>
 										</td>
 									<%}
 									else{%>
 											<td width="30%" align="center">
-												<a onclick="login()" class="link">
-												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+												<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
+												<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
 												<b><%=rs.getString("title") %></b><br>
-												<%=rs.getString("writer") %><br>
+												<%=rs.getString("price") %><br>
 												</a>
 											</td>
 											<td width="5%"></td>

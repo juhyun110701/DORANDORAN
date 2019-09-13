@@ -23,14 +23,18 @@
 				document.form.pw.focus();
 				return;
 			}*/
-			document.forms['form'].submit();	//아이디, 비밀번호 다 입력했을 시 loginProc.jsp로 이동
+			document.forms['form'].encoding="multipart/form-data";
+			document.forms['form'].submit();	
 		}//function check()
 </script>
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false"/><p>
+<jsp:include page="topp.jsp" flush="false"/><p>
 <p>
-<form name="form" action="oldBookEnrollProc.jsp" method="post">
+<%
+	String id=request.getParameter("id");
+%>
+<form name="form" action="oldBookEnrollProc.jsp" method="post" enctype="multipart/form-data">
     <table id="whole">
         <tr>
            <td colspan=3>
@@ -50,7 +54,7 @@
                                <font size="5%">이미지</font>
                           	</td>
                       		<td>
-                              <input type="file" name="image"><p>
+                              <input type="file" name="file"><p>
                           	</td>
                       </tr>
                       <tr>	
@@ -106,6 +110,7 @@
                        <tr>
                            <td colspan=5 align="center">
                            	<p>
+                           	<input type="hidden" name="seller" value="<%=id %>">
                            	<input type="button" id="enroll" class="btn" value="등록하기" onclick="check()">
                            	<p>
                            </td>

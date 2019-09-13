@@ -29,16 +29,21 @@
     	
     	if(rs.next()){
   			//isLogin=true;
+  			Cookie cookie=new Cookie("id",id);
+  			System.out.println("loginProc id : "+id);
+  			cookie.setMaxAge(60*30);
+  			//cookie.setPath("/");
+  			response.addCookie(cookie);
     		%>
   			<script>
   				var id="<%=id%>";
   				alert(id+"님 로그인되었습니다");
-  				<%session.setAttribute("id", id); //세션%>
-  				location.href="index.jsp";
-  				location.target="area";
+  				//location.href="index.jsp";
+  				//location.target="area";
   			</script>
-  				  			
-<%
+  			<meta http-equiv="refresh" content="1;URL='indexx.jsp'">
+	  			
+<%			
   		}//if
     	else{%>
     		<script>

@@ -11,22 +11,27 @@
 -->
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
-<script>
-	function check(){
-		alert("로그인 후 이용하실 수 있습니다");
-		return ;
-	}
-</script>
 </head>
 <body>
+	<%	
+		Cookie[] cookies=request.getCookies();
+		String id="";
+		
+		for(int i=0; i<cookies.length; i++){
+			if(cookies[i].getName().equals("id")){
+        		id=cookies[i].getValue();
+			}
+		}
+		
+	%>
     <table id="whole">
         <tr>
             <td width="45%"></td>
             <td width="10%"><a href="index.jsp"><img src="img/logo.png" width="80%"></a></td>
             <td width="45%" style="padding-left:20%;">
             <div id="login"></div>
-                		<a href="login.jsp" class="top_menu" style="color:#f54e42;" target="_top">로그인</a>&nbsp;
-                		<a href="signup.jsp" class="top_menu" target="_top">회원가입</a><p>   
+                		<div id="whilelog"><font style="color:#f54e42;"><%=id %></font>님 로그인 중입니다</div><p>
+                		<a href="logout.jsp" class="top_menu" style="color:#f54e42;">로그아웃</a>&nbsp;
             </td>
         </tr>
         <tr class="menu">
@@ -34,10 +39,10 @@
                 <table width="100%" height="50px">
                     <tr>
                        <td width="30%"></td>
-                        <td class="menu_in"><a href="index.jsp" target="area">전체도서</a></td>
-                        <td class="menu_in"><a href="recentBook.jsp" target="area">신간도서</a></td>
-                        <td class="menu_in"><a href="oldBook.jsp" target="area">중고도서</a></td>
-                        <td class="menu_in"><a onclick="check()">마이페이지</a></td>
+                        <td class="menu_in"><a href="indexx.jsp" target="area">전체도서</a></td>
+                        <td class="menu_in"><a href="recentBookk.jsp" target="area">신간도서</a></td>
+                        <td class="menu_in"><a href="oldBookk.jsp" target="area">중고도서</a></td>
+                        <td class="menu_in"><a href="toMyPage.jsp?id=<%=id%>" target="area">마이페이지</a></td>
                         <td width="30%"></td>
                     </tr>
                 </table></td>

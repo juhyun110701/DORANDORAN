@@ -17,12 +17,6 @@
 -->
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
-<script>
-	function login(){
-		alert("로그인 후 이용하실 수 있습니다");
-		return ;
-	}
-</script>
 <style>
 .thumbnail{
 	width:200px;
@@ -50,7 +44,7 @@ b:hover{
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select title, writer, price from book";
+					String sql="select title, writer, price, publish_date from book where SYSDATE-publish_date<30";
 					int count=1;
 					
 					try{
@@ -65,7 +59,7 @@ b:hover{
 									<tr>	
 										<td width="5%"></td>
 										<td width="30%" align="center">
-											<a onclick="login()" class="link">
+											<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
 												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 												<b><%=rs.getString("title") %></b><br>
 												<%=rs.getString("writer") %><br>
@@ -74,7 +68,7 @@ b:hover{
 								<%	}//if
 									else if(count%3==2){%>
 										<td width="30%" align="center">
-										<a onclick="login()" class="link">
+										<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
 										<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 										<b><%=rs.getString("title") %></b><br>
 										<%=rs.getString("writer") %><br>
@@ -83,7 +77,7 @@ b:hover{
 									<%}
 									else{%>
 											<td width="30%" align="center">
-												<a onclick="login()" class="link">
+												<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
 												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 												<b><%=rs.getString("title") %></b><br>
 												<%=rs.getString("writer") %><br>

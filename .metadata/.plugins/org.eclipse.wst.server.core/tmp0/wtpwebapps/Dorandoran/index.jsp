@@ -17,10 +17,22 @@
 -->
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+<script>
+	function login(){
+		alert("로그인 후 이용하실 수 있습니다");
+		return ;
+	}
+</script>
 <style>
-img{
+.thumbnail{
 	width:200px;
 	height:300px;
+}
+.link{
+	color:#311b1b;
+}
+b:hover{
+	color:#ed6853;
 }
 </style>
 </head>
@@ -32,6 +44,7 @@ img{
 		<td>
 			<div id="box" align="center">
 				<%
+					String id=request.getParameter("id");
 					//db연결
 					Connection conn=null;
 					PreparedStatement pstmt=null;
@@ -52,23 +65,29 @@ img{
 									<tr>	
 										<td width="5%"></td>
 										<td width="30%" align="center">
-											<img src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
-											<b><%=rs.getString("title") %></b><br>
-											<%=rs.getString("writer") %><br>
+											<a onclick="login()" class="link">
+												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+												<b><%=rs.getString("title") %></b><br>
+												<%=rs.getString("writer") %><br>
+											</a>
 										</td>								
 								<%	}//if
 									else if(count%3==2){%>
 										<td width="30%" align="center">
-										<img src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+										<a onclick="login()" class="link">
+										<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 										<b><%=rs.getString("title") %></b><br>
 										<%=rs.getString("writer") %><br>
+										</a>
 										</td>
 									<%}
 									else{%>
 											<td width="30%" align="center">
-												<img src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
+												<a onclick="login()" class="link">
+												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 												<b><%=rs.getString("title") %></b><br>
 												<%=rs.getString("writer") %><br>
+												</a>
 											</td>
 											<td width="5%"></td>
 											<p></p>

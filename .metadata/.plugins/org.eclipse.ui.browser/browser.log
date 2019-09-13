@@ -282,3 +282,16 @@
 
 8월 29, 2019 22:17:08.07 NEW SESSION
 8월 29, 2019 22:17:08.07 [11560:9264:0829/221708.070:ERROR:browser_process_sub_thread.cc(203)] Waited 272 ms for network service
+
+9월 13, 2019 15:49:49.67 NEW SESSION
+9월 13, 2019 15:49:49.67 [10508:13172:0913/154949.638:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 13, 2019 16:04:04.81 [10508:13172:0913/160404.812:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+9월 13, 2019 21:47:30.86 [10508:13172:0913/214730.864:ERROR:browser_process_sub_thread.cc(203)] Waited 20 ms for network service
+9월 13, 2019 21:47:42.92 [14740:15668:0913/214742.922:ERROR:browser_process_sub_thread.cc(203)] Waited 32 ms for network service
+9월 13, 2019 22:31:27.34 [15220:3516:0913/223127.346:ERROR:browser_process_sub_thread.cc(203)] Waited 34 ms for network service
+9월 14, 2019 24:08:39.04 [10612:12116:0914/000839.039:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 14, 2019 24:15:36.77 [10612:12116:0914/001536.774:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 14, 2019 24:15:57.98 [10612:12116:0914/001557.980:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+9월 14, 2019 24:16:51.55 [10612:12116:0914/001651.550:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+9월 14, 2019 24:18:14.71 [10612:12116:0914/001814.712:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+9월 14, 2019 24:22:09.02 [10612:12116:0914/002209.029:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106

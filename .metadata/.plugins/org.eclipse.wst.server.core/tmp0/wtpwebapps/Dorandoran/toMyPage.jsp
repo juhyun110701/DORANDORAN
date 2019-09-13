@@ -23,7 +23,7 @@
 <%	}
 	else{%>
 		<script>
-			location.href="myPage.jsp?id=<%=id%>";
+			location.href="myPage.jsp";
 		</script>
 <%	}
 %>

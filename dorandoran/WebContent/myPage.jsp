@@ -41,14 +41,21 @@
 #mbox a{
     color:#ed6853;
 }
-	
 </style>
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false"/><p>
+<jsp:include page="topp.jsp" flush="false"/><p>
 <%
 	request.setCharacterEncoding("utf-8");
-	String id=request.getParameter("id");
+	
+	Cookie[] cookies=request.getCookies();
+	String id="";
+		
+	for(int i=0; i<cookies.length; i++){
+		if(cookies[i].getName().equals("id")){
+	    	id=cookies[i].getValue();
+		}
+	}
 %>
 <table id="whole">
         <tr>
@@ -62,7 +69,7 @@
            	</div><p>
            	<div id="dbox" align="center"><a href="#">책 후기 작성</a></div>
            	<div id="dbox" align="center"><a href="oldBookEnroll.jsp">중고 도서 등록</a></div>
-           	<div id="dbox" align="center"><a href="#">구매목록</a></div>
+           	<div id="dbox" align="center"><a href="boughtBook.jsp">구매목록</a></div>
            	<div id="dbox" align="center"><a href="#">판매목록</a></div>
            	<div id="dbox" align="center"><a href="#">비밀번호 변경</a></div>
            	<%if(id.equals("admin")){ %>

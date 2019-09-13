@@ -29,7 +29,8 @@
 </script>
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false"/><p><br>
+<jsp:include page="topp.jsp" flush="false"/><p><br>
+
 <form name="form" action="bookEnrollProc.jsp" method="post" enctype="multipart/form-data">
     <table id="whole">
         <tr>

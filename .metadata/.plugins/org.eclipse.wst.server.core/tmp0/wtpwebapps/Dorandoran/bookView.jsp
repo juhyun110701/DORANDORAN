@@ -1,86 +1,193 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
 <%@ page import="doran.db.connection.DBConnection" %>
+
+<%@page import="org.apache.commons.io.output.ByteArrayOutputStream"%>
+<%@page import="java.io.*"%>
+<%@page import="java.awt.image.BufferedImage"%>
+<%@page import="javax.imageio.ImageIO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>도란도란 : 책 정보</title>
+<title>도란도란 : 도서 상세 페이지</title>
 <!--
 <link rel="shortcut icon" href="img/logo.png">
 <link rel="apple-touch-icon" href="img/logo_apple.png">
 -->
-<link rel="stylesheet" href="css/bookView.css">
+<link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
-<script>
-//maxlength 체크
-function maxLengthCheck(object){
- if (object.value.length > object.maxLength){
-  object.value = object.value.slice(0, object.maxLength);
- }   
+<style>
+.thumbnail{
+	width:300px;
+	height:450px;
+	border:solid 2px #311b1b;
 }
-</script>
+b{
+	font-size:50px;
+}
+#upper{
+	font-size:20px;
+}
+#price{
+	font-size:20px;
+	color:#ed6853;
+	margin-bottom:180px;
+}
+.btn{
+	background-color:#311b1b;
+	color:lightgoldenrodyellow;
+	border-radius:20px;
+	border:0;
+	outline:0;
+	padding:3%;
+	font-size:120%;
+	width:100%;
+}
+#specific{
+	border: 2px solid #311b1b;
+	background-color:lightgoldenrodyellow;
+}
+</style>
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false"/><p>
-<%
-	//db연결
-	Connection conn=null;
-    PreparedStatement pstmt=null;
-    //String sql="select * from book where ";
+
+<jsp:include page="topp.jsp" flush="false"/><p>
+<p></p>
+<%	
+		Cookie[] cookies=request.getCookies();
+		String id="";
+		
+		for(int i=0; i<cookies.length; i++){
+			if(cookies[i].getName().equals("id")){
+        		id=cookies[i].getValue();
+			}
+		}
+		
 %>
-<div id="box" align="center">
-<table border=1 id="whole">
-	<tr>
-		<td rowspan=5 width="30%">img</td>
-		<td id="title" class="title">제목</td>
-	</tr>
-	<tr>
-		<td id="writer">김작가 지음</td>
-	</tr>
-	<tr>
-		<td><br></td>
-	</tr>
-	<tr>
-		<td id="price">가격 : </td>
-	</tr>
+	
+<form name="form" action="insertBought.jsp">
+<table id="whole">
 	<tr>
 		<td>
-			수량 : <input type="number" name="amount" value=0 max=99 maxlength=2 style="width:30px;" oninput="maxLengthCheck(this)"> 권
-		</td>
-	</tr>
-	<tr>
-		<td colspan=2 align="center">
-			<input type="button" id="buy" class="btn" value="구매하기">
+			<div id="box" align="center">
+				<%
+					request.setCharacterEncoding("utf-8");
+					
+					String title=request.getParameter("title");
+					
+					//db연결
+					Connection conn=null;
+					PreparedStatement pstmt=null;
+					ResultSet rs=null;
+					
+					try{
+						conn=DBConnection.getCon();
+						
+						String sql="select title, writer, publisher, publish_date, genre, price, stock, translator from book where title=?";
+						
+						pstmt=conn.prepareStatement(sql);
+						pstmt.setString(1,title);
+						rs=pstmt.executeQuery();
+						%>
+						<table width="80%" align="center" id="books">
+							<%
+								while(rs.next()){%>
+									<tr>	
+										<td align="center" width="50%">
+											<img class="thumbnail" src="imgView.jsp?title=<%=title%>"><p>
+										</td>
+										<td width="50%" style="padding-left:20px;">
+											<b><%=title%></b>
+											<div id="upper"><%=rs.getString("writer") %></div>
+											<div id="price"><%=rs.getString("price") %>원</div>
+											구매 권 수 : <input type="number" name="num" style="width:100px;height:20px;font-size:20px;"><br><p>
+											<input type="hidden" name="title" value="<%=title%>">
+											<input type="hidden" name="price" value="<%=rs.getString("price") %>">
+											<input type="hidden" name="stock" value="<%=rs.getString("stock") %>">
+											<script>
+												function check(){
+													if(document.form.num.value==""){
+														alert("구매하실 권 수 를 입력해주세요");
+														document.form.num.focus();
+														return;
+													}
+													if(document.form.num.value><%=Integer.parseInt(rs.getString("stock"))%>){
+														alert("재고가 부족해 입력하신 권 수 만큼 구매하실 수 없습니다");
+														document.form.num.focus();
+														return;
+													}
+													if(document.form.num.value==0){
+														alert("재고가 모두 소진되었습니다");
+														document.form.num.focus();
+														return;
+													}
+													alert("<%=title%>을 "+document.form.num.value+"권 주문하시겠습니까?");
+													alert("주문이 완료되었습니다 :)");
+													document.forms['form'].submit();
+												}//function check()
+											</script>
+											<div align="center">
+												<input type="button" id="enroll" class="btn" value="구매하기" onclick="check()">)
+											</div>
+										</td>
+									</tr>
+						</table>
+						<table id="specific" width="50%" align="center">
+							<tr id="specific">
+								<td align="center" colspan=2><p style="font-size:30px;">상세정보</p></td>
+							</tr>
+							<tr id="specific">
+								<td width="50%" align="right" style="padding-right:20px;">제목</td>
+								<td width="50%"><%=title%></td>
+							</tr>
+							<tr id="specific">
+								<td width="50%" align="right" style="padding-right:20px;">작가</td>
+								<td width="50%"><%=rs.getString("writer") %></td>
+							</tr>
+							<tr id="specific">
+								<td width="50%" align="right" style="padding-right:20px;">출판사</td>
+								<td width="50%"><%=rs.getString("publisher") %></td>
+							</tr>
+							<tr id="specific">
+								<td width="50%" align="right" style="padding-right:20px;">출판일</td>
+								<td width="50%"><%=rs.getString("publish_date") %></td>
+							</tr>
+							<tr id="specific">
+								<td width="50%" align="right" style="padding-right:20px;">장르</td>
+								<td width="50%"><%=rs.getString("genre") %></td>
+							</tr>
+							<tr id="specific">
+								<td width="50%" align="right" style="padding-right:20px;">옮긴이</td>
+								<td width="50%"><%=rs.getString("translator") %></td>
+							</tr>
+							<tr id="specific">
+								<td><br></td>
+							</tr>
+						</table>
+								
+								<%
+								}//while	
+					}
+					catch(SQLException e){
+						e.printStackTrace();
+					}
+					finally{
+						try{
+							if(pstmt!=null) pstmt.close();
+							if(conn!=null) conn.close();
+						}
+						catch(SQLException e){
+							System.out.println(e.getMessage());
+						}
+					}
+				%>
+			</div>
 		</td>
 	</tr>
 </table>
-</div>
-<p>
-<div id="box" align="center">
-<table border=1 id="whole" class="info">
-	<tr>
-		<td colspan=4 align="center" id="plus">책 정보</td>
-	</tr>
-	<tr>
-		<td>제목</td>
-		<td id="title">제목자리</td>
-		<td>작가</td>
-		<td id="writer">작가자리</td>
-	</tr>
-	<tr>
-		<td>출판사</td>
-		<td id="publisher">출판사자리</td>
-		<td>출판일</td>
-		<td id="publish_date">출판일자리</td>
-	</tr>
-	<tr>
-		<td>분야</td>
-		<td id="genre">분야자리</td>
-		<td>옮긴이</td>
-		<td id="translator">옮긴이자리</td>
-	</tr>
-</table>
-</div>
+
+</form>
+	
 </body>
 </html>

@@ -1,10 +1,8 @@
 INDEX VERSION 1.4+D:\0mirim\dbp\dbp_web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-898091965.index
 1986231734.index
 2627169423.index
 2652201340.index
 1921791081.index
-1313880337.index
 1313880337.index
 3706455748.index
 180962050.index
