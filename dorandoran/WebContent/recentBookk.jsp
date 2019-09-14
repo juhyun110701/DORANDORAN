@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>도란도란</title>
+<title>도란도란 : 신간도서</title>
 <!--
 <link rel="shortcut icon" href="img/logo.png">
 <link rel="apple-touch-icon" href="img/logo_apple.png">

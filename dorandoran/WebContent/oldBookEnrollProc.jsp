@@ -18,6 +18,14 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	
+	Cookie[] cookies=request.getCookies();
+	String seller="";
+		
+	for(int i=0; i<cookies.length; i++){
+		if(cookies[i].getName().equals("id")){
+	    	seller=cookies[i].getValue();
+		}
+	}
 
 	String uploadPath=request.getRealPath("/uploadFile");
 	out.println("절대 경로 : "+uploadPath+"<br>");
@@ -25,7 +33,7 @@
 	int maxSize=1024*1024*10;
 	
 	String title="", writer="", publisher="", publish_date="";
-	String price="", genre="", seller="";
+	String price="", genre="";
 	
 	String fileName1="";//중복처리된 이름
 	String originalName1="";//중복 처리 전 실제 원본 이름
@@ -43,7 +51,7 @@
 		publisher=multi.getParameter("publisher");
 		publish_date=multi.getParameter("publish_date");
 		genre=multi.getParameter("genre");
-		seller=multi.getParameter("seller");
+		//seller=multi.getParameter("seller");
 		price=multi.getParameter("price");
 		
 		file=multi.getFile("file");

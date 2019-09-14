@@ -105,6 +105,8 @@ b{
 											<input type="hidden" name="title" value="<%=title%>">
 											<input type="hidden" name="price" value="<%=rs.getString("price") %>">
 											<input type="hidden" name="stock" value="<%=rs.getString("stock") %>">
+											<input type="hidden" name="seller" value="도란도란">
+											<input type="hidden" name="book" value="책">
 											<script>
 												function check(){
 													if(document.form.num.value==""){
@@ -133,6 +135,8 @@ b{
 										</td>
 									</tr>
 						</table>
+						
+						<!-- 상세정보 -->
 						<table id="specific" width="50%" align="center">
 							<tr id="specific">
 								<td align="center" colspan=2><p style="font-size:30px;">상세정보</p></td>
@@ -165,10 +169,35 @@ b{
 								<td><br></td>
 							</tr>
 						</table>
-								
-								<%
-								}//while	
-					}
+						<%}//while %>
+						
+						<!-- 후기 -->
+						<%
+							sql="select * from comments where title=? order by num";
+							pstmt=conn.prepareStatement(sql);
+							pstmt.setString(1,title);
+							rs=pstmt.executeQuery();%>
+							
+						<p></p>
+						<table id="specific" width="50%" align="center" style="margin-bottom:20px">
+							<tr id="specific">
+								<td align="center" colspan=2><p style="font-size:30px;">후기</p></td>
+							</tr>
+						<%	while(rs.next()){
+						%>	<tr>
+								<td style="padding:10px;">
+									<details style="border:2px solid #311b1b;border-radius:10px;">
+										<summary style="background-color:#311b1b;padding:2%;color:lightgoldenrodyellow;"><%=rs.getString("ctitle") %></summary>
+										<div style="padding:2%;">
+											작성자 : <%=rs.getString("id") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<%=rs.getString("content") %>
+										</div>
+									</details>
+								</td>
+							</tr>	
+						<%}//while%>
+						</table>			
+					<%}
 					catch(SQLException e){
 						e.printStackTrace();
 					}

@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>도란도란</title>
+<title>도란도란 : 중고도서</title>
 <!--
 <link rel="shortcut icon" href="img/logo.png">
 <link rel="apple-touch-icon" href="img/logo_apple.png">
@@ -28,7 +28,20 @@
 b:hover{
 	color:#ed6853;
 }
+.btn{
+	border-radius:20px;
+	border:0;
+	outline:0;
+	padding:1%;
+	width:60%;
+}
 </style>
+<script>
+	function done(){
+		alert("판매가 완료된 상품입니다");
+		return ;
+	}
+</script>
 </head>
 <body>
 <jsp:include page="topp.jsp" flush="false"/><p>
@@ -44,8 +57,9 @@ b:hover{
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select title, writer, price from old_book";
+					String sql="select title, writer, price, status from old_book order by status NULLS FIRST, price";
 					int count=1;
+					String status="";
 					
 					try{
 						conn=DBConnection.getCon();
@@ -55,37 +69,84 @@ b:hover{
 						<table width="80%" align="center" id="books">
 							<%
 								while(rs.next()){
+									System.out.println(rs.getString("status"));
+									if(rs.getString("status")==null) status="판매 중";
+									else status=rs.getString("status");
+									
 									if(count%3==1){%>
 									<tr>	
-										<td width="5%"></td>
-										<td width="30%" align="center">
-											<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
-												<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
-												<b><%=rs.getString("title") %></b><br>
-												<%=rs.getString("price") %><br>
-											</a>
-										</td>								
+										<%if(status.equals("판매됨")) {%>
+												<td width="5%"></td>
+												<td width="30%" align="center">
+													<a class="link"  onclick="done()">
+														<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
+														<b><%=rs.getString("title") %></b><br>
+														<%=rs.getString("price") %><br>
+														<input type="button" class="btn" style="background-color:#ed6853;color:white;" value="판매 완료">
+													</a>
+												</td>
+										<%} 
+										else{%>
+												<td width="5%"></td>
+												<td width="30%" align="center">
+													<a href="oldBookView.jsp?title=<%=rs.getString("title") %>" class="link">
+														<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
+														<b><%=rs.getString("title") %></b><br>
+														<%=rs.getString("price") %><br>
+														<input type="button" class="btn" style="background-color:#15a100;color:white;" value="판매 중">
+													</a>
+												</td>
+										<%}%>
 								<%	}//if
 									else if(count%3==2){%>
-										<td width="30%" align="center">
-										<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
-										<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
-										<b><%=rs.getString("title") %></b><br>
-										<%=rs.getString("price") %><br>
-										</a>
-										</td>
+										<%if(status.equals("판매됨")) {%>
+												<td width="30%" align="center">
+													<a class="link" onclick="done()">
+														<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
+														<b><%=rs.getString("title") %></b><br>
+														<%=rs.getString("price") %><br>
+														<input type="button" class="btn" style="background-color:#ed6853;color:white;" value="판매 완료">
+													</a>
+												</td>
+										<%} 
+										else{%>
+												<td width="30%" align="center">
+													<a href="oldBookView.jsp?title=<%=rs.getString("title") %>" class="link">
+														<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
+														<b><%=rs.getString("title") %></b><br>
+														<%=rs.getString("price") %><br>
+														<input type="button" class="btn" style="background-color:#15a100;color:white;" value="판매 중">
+													</a>
+												</td>
+										<%}%>
 									<%}
 									else{%>
+										<%if(status.equals("판매됨")) {%>
 											<td width="30%" align="center">
-												<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
-												<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
-												<b><%=rs.getString("title") %></b><br>
-												<%=rs.getString("price") %><br>
+												<a class="link" onclick="done()">
+													<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
+													<b><%=rs.getString("title") %></b><br>
+													<%=rs.getString("price") %><br>
+													<input type="button" class="btn" style="background-color:#ed6853;color:white;" value="판매 완료">
 												</a>
 											</td>
 											<td width="5%"></td>
 											<p></p>
-										</tr>
+											</tr>
+										<%} 
+										else{%>
+											<td width="30%" align="center">
+												<a href="oldBookView.jsp?title=<%=rs.getString("title") %>" class="link">
+													<img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"><p>
+													<b><%=rs.getString("title") %></b><br>
+													<%=rs.getString("price") %><br>
+													<input type="button" class="btn" style="background-color:#15a100;color:white;" value="판매 중">
+												</a>
+											</td>
+											<td width="5%"></td>
+											<p></p>
+											</tr>
+										<%}%>
 									<%}
 									count++;
 								}//while
@@ -94,7 +155,7 @@ b:hover{
 						<%
 					}
 					catch(SQLException e){
-						System.out.println(e.getMessage());
+						e.printStackTrace();
 					}
 					finally{
 						try{

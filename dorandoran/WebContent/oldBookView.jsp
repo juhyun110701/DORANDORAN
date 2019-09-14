@@ -84,7 +84,7 @@ b{
 					try{
 						conn=DBConnection.getCon();
 						
-						String sql="select title, writer, publisher, publish_date, genre, price, stock, translator from book where title=?";
+						String sql="select * from old_book where title=?";
 						
 						pstmt=conn.prepareStatement(sql);
 						pstmt.setString(1,title);
@@ -95,36 +95,25 @@ b{
 								while(rs.next()){%>
 									<tr>	
 										<td align="center" width="50%">
-											<img class="thumbnail" src="imgView.jsp?title=<%=title%>"><p>
+											<img class="thumbnail" src="oldImgView.jsp?title=<%=title%>"><p>
 										</td>
 										<td width="50%" style="padding-left:20px;">
 											<b><%=title%></b>
 											<div id="upper"><%=rs.getString("writer") %></div>
 											<div id="price"><%=rs.getString("price") %>원</div>
-											구매 권 수 : <input type="number" name="num" style="width:100px;height:20px;font-size:20px;"><br><p>
 											<input type="hidden" name="title" value="<%=title%>">
 											<input type="hidden" name="price" value="<%=rs.getString("price") %>">
-											<input type="hidden" name="stock" value="<%=rs.getString("stock") %>">
-											<input type="hidden" name="seller" value="도란도란">
-											<input type="hidden" name="book" value="책">
+											<input type="hidden" name="stock" value=1>
+											<input type="hidden" name="num" value=1>
+											<input type="hidden" name="seller" value="<%=rs.getString("seller")%>">
+											<input type="hidden" name="book" value="중고책">
 											<script>
 												function check(){
-													if(document.form.num.value==""){
-														alert("구매하실 권 수 를 입력해주세요");
-														document.form.num.focus();
+													if(<%=rs.getString("status")%>=="판매됨"){
+														alert("이미 판매된 상품입니다");
 														return;
 													}
-													if(document.form.num.value><%=Integer.parseInt(rs.getString("stock"))%>){
-														alert("재고가 부족해 입력하신 권 수 만큼 구매하실 수 없습니다");
-														document.form.num.focus();
-														return;
-													}
-													if(document.form.num.value==0){
-														alert("재고가 모두 소진되었습니다");
-														document.form.num.focus();
-														return;
-													}
-													alert("<%=title%>을 "+document.form.num.value+"권 주문하시겠습니까?");
+													alert("<%=title%>을  주문하시겠습니까?");
 													alert("주문이 완료되었습니다 :)");
 													document.forms['form'].submit();
 												}//function check()
@@ -135,8 +124,6 @@ b{
 										</td>
 									</tr>
 						</table>
-						
-						<!-- 상세정보 -->
 						<table id="specific" width="50%" align="center">
 							<tr id="specific">
 								<td align="center" colspan=2><p style="font-size:30px;">상세정보</p></td>
@@ -169,8 +156,9 @@ b{
 								<td><br></td>
 							</tr>
 						</table>
-						<%}//while %>
-						
+								
+								<%
+								}//while%>	
 						<!-- 후기 -->
 						<%
 							sql="select * from comments where title=? order by num";
@@ -196,7 +184,7 @@ b{
 								</td>
 							</tr>	
 						<%}//while%>
-						</table>			
+						</table>
 					<%}
 					catch(SQLException e){
 						e.printStackTrace();

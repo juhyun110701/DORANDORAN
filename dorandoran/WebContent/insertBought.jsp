@@ -31,10 +31,15 @@
 	
 	int price=Integer.parseInt(request.getParameter("price"));
 	int stock=Integer.parseInt(request.getParameter("stock"));
+	String seller=request.getParameter("seller");
+	String book=request.getParameter("book");
+	if(stock==0) stock=1;
 	String title=request.getParameter("title");
 	int num=Integer.parseInt(request.getParameter("num"));
+	if(num==0) num=1;
 	System.out.println("int num : "+num);
 	price=price*num;
+	if(seller==null) seller="도란도란";
 	System.out.println("price : "+price);
 	
 	
@@ -47,7 +52,6 @@
 	java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 	String today = formatter.format(new java.util.Date());
 	System.out.println(today);
-	String seller="도란도란";
 	System.out.println("buyer : "+buyer);
 	
 	try{
@@ -64,12 +68,25 @@
 		
 		n=pstmt.executeUpdate();
 		
-		//해당 책 재고수량 update
-		sql="update book set stock=MINUSSTOCK(?,?) where title=?";
-		pstmt=conn.prepareStatement(sql);
-		pstmt.setInt(1,stock);
-		pstmt.setInt(2,num);
-		pstmt.setString(3,title);
+		if(book.equals("책")){
+			//해당 책 재고수량 update
+			n=0;
+			sql="update book set stock=MINUSSTOCK(?,?) where title=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1,stock);
+			pstmt.setInt(2,num);
+			pstmt.setString(3,title);
+			n=pstmt.executeUpdate();
+		}
+		else if(book.equals("중고책")){
+			//해당 책 status 바꿈
+			n=0;
+			sql="update old_book set status='판매됨' where title=? AND seller=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,title);
+			pstmt.setString(2,seller);
+			n=pstmt.executeUpdate();
+		}
 	}
 	catch(SQLException e){
 		e.printStackTrace();

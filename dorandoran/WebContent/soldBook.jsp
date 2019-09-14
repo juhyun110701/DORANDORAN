@@ -10,14 +10,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>도란도란 : 마이페이지</title>
+<title>도란도란 : 판매목록</title>
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 <style>
 #box{
     background-color:lightgoldenrodyellow;
     border-radius:30px;
-    padding:2%;
+    padding:1%;
     width:90%;
 }
 
@@ -105,14 +105,14 @@ b:hover{
 	<tr>
 		<td>
 			<div id="box" align="center">
-				<h2>구매목록</h2>
+				<h2>판매목록</h2>
 				<%				
 					//db연결
 					Connection conn=null;
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select * from bought where buyer=? AND seller='도란도란' order by bought_date desc";
+					String sql="select * from bought where seller=? order by bought_date desc";
 					
 					try{
 						conn=DBConnection.getCon();
@@ -124,59 +124,7 @@ b:hover{
 								<tr align="center" style="color:#ed6853;font-size:20px;" id="specific">
 									<td id="specific" width="20%">표지</td>
 									<td id="specific" width="20%">제목</td>
-									<td id="specific" width="20%">판매자</td>
-									<td id="specific" width="20%">가격</td>
-									<td id="specific" width="20%">구매일시</td>
-								</tr>
-							<%
-								while(rs.next()){%>
-									<tr id="specific" align="center">	
-										<td id="specific" align="center"><img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"></td>
-										<td id="specific" align="center"><%=rs.getString("title") %></td>
-										<td id="specific" align="center"><%=rs.getString("seller") %></td>
-										<td id="specific" align="center"><%=rs.getString("price") %></td>
-										<td id="specific" align="center"><%=rs.getString("bought_date") %></td>
-									</tr>
-								<%}//while
-							%>
-						</table>
-						<%
-					}
-					catch(SQLException e){
-						System.out.println(e.getMessage());
-					}
-					finally{
-						try{
-							if(pstmt!=null) pstmt.close();
-							if(conn!=null) conn.close();
-						}
-						catch(SQLException e){
-							System.out.println(e.getMessage());
-						}
-					}
-				%>
-						</div>
-					</td>
-				</tr>
-			</table>
-           	</div>
-           	<p>
-           	<div id="box" align="center">
-				<h2>중고도서 구매목록</h2>
-				<%				
-					sql="select * from bought where buyer=? AND seller!='도란도란' order by bought_date desc";
-					
-					try{
-						conn=DBConnection.getCon();
-						pstmt=conn.prepareStatement(sql);
-						pstmt.setString(1,id);
-						rs=pstmt.executeQuery();
-						%>
-						<table width="100%" align="center" id="specific">
-								<tr align="center" style="color:#ed6853;font-size:20px;" id="specific">
-									<td id="specific" width="20%">표지</td>
-									<td id="specific" width="20%">제목</td>
-									<td id="specific" width="20%">판매자</td>
+									<td id="specific" width="20%">구매자</td>
 									<td id="specific" width="20%">가격</td>
 									<td id="specific" width="20%">구매일시</td>
 								</tr>
@@ -185,7 +133,7 @@ b:hover{
 									<tr id="specific" align="center">	
 										<td id="specific" align="center"><img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"></td>
 										<td id="specific" align="center"><%=rs.getString("title") %></td>
-										<td id="specific" align="center"><%=rs.getString("seller") %></td>
+										<td id="specific" align="center"><%=rs.getString("buyer") %></td>
 										<td id="specific" align="center"><%=rs.getString("price") %></td>
 										<td id="specific" align="center"><%=rs.getString("bought_date") %></td>
 									</tr>

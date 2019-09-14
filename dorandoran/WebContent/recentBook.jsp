@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>도란도란</title>
+<title>도란도란 : 신간도서</title>
 <!--
 <link rel="shortcut icon" href="img/logo.png">
 <link rel="apple-touch-icon" href="img/logo_apple.png">
@@ -29,6 +29,12 @@ b:hover{
 	color:#ed6853;
 }
 </style>
+<script>
+	function login(){
+		alert("로그인 후 이용하실 수 있습니다");
+		return ;
+	}
+</script>
 </head>
 <body>
 <jsp:include page="top.jsp" flush="false"/><p>
@@ -59,7 +65,7 @@ b:hover{
 									<tr>	
 										<td width="5%"></td>
 										<td width="30%" align="center">
-											<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
+											<a onclick="login()" class="link">
 												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 												<b><%=rs.getString("title") %></b><br>
 												<%=rs.getString("writer") %><br>
@@ -68,7 +74,7 @@ b:hover{
 								<%	}//if
 									else if(count%3==2){%>
 										<td width="30%" align="center">
-										<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
+										<a onclick="login()" class="link">
 										<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 										<b><%=rs.getString("title") %></b><br>
 										<%=rs.getString("writer") %><br>
@@ -77,7 +83,7 @@ b:hover{
 									<%}
 									else{%>
 											<td width="30%" align="center">
-												<a href="bookView.jsp?title=<%=rs.getString("title") %>" class="link">
+												<a onclick="login()" class="link">
 												<img class="thumbnail" src="imgView.jsp?title=<%=rs.getString("title")%>"><p>
 												<b><%=rs.getString("title") %></b><br>
 												<%=rs.getString("writer") %><br>
