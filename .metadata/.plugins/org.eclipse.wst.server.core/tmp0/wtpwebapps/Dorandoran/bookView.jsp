@@ -84,7 +84,7 @@ b{
 					try{
 						conn=DBConnection.getCon();
 						
-						String sql="select title, writer, publisher, publish_date, genre, price, stock, translator from book where title=?";
+						String sql="select title, writer, publisher, publish_date, genres.genre as genre, price, stock, translator from book, genres where book.genre=genres.genre_num AND title=?";
 						
 						pstmt=conn.prepareStatement(sql);
 						pstmt.setString(1,title);

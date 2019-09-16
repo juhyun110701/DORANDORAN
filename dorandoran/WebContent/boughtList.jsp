@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>도란도란 : 판매목록</title>
+<title>도란도란 : 클라이언트 목록</title>
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 <style>
@@ -48,21 +48,6 @@
 #mbox a{
     color:#ed6853;
 }
-.thumbnail{
-	width:100px;
-	height:150px;
-}
-.link{
-	color:#311b1b;
-}
-b:hover{
-	color:#ed6853;
-}
-#specific{
-	border: 2px solid #311b1b;
-	background-color:lightgoldenrodyellow;
-	border-collapse:collapse;
-}
 #bbox{
     background-color:#311b1b;
     color:#15a100;
@@ -84,6 +69,21 @@ b:hover{
 
 #ybox a{
     color:#fce803;
+}
+.thumbnail{
+	width:100px;
+	height:150px;
+}
+.link{
+	color:#311b1b;
+}
+b:hover{
+	color:#ed6853;
+}
+#specific{
+	border: 2px solid #311b1b;
+	background-color:lightgoldenrodyellow;
+	border-collapse:collapse;
 }
 </style>
 </head>
@@ -141,37 +141,60 @@ b:hover{
 	<tr>
 		<td>
 			<div id="box" align="center">
-				<h2>중고도서 판매목록</h2>
+				<h2>판매내역 관리</h2>
 				<%				
 					//db연결
 					Connection conn=null;
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select * from bought where seller=? order by bought_date desc";
+					String sql="SELECT TITLE, SELLER, BUYER, COUNT(*) as cnt, SUM(PRICE) as price FROM BOUGHT GROUP BY CUBE(title, seller, buyer) ORDER BY title NULLS LAST, seller NULLS LAST, buyer NULLS LAST, price desc";
 					
 					try{
 						conn=DBConnection.getCon();
 						pstmt=conn.prepareStatement(sql);
-						pstmt.setString(1,id);
 						rs=pstmt.executeQuery();
 						%>
 						<table width="110%" align="center" id="specific">
 								<tr align="center" style="color:#ed6853;font-size:20px;" id="specific">
-									<td id="specific" width="20%">표지</td>
 									<td id="specific" width="20%">제목</td>
 									<td id="specific" width="20%">구매자</td>
+									<td id="specific" width="20%">판매자</td>
+									<td id="specific" width="20%">권 수</td>
 									<td id="specific" width="20%">가격</td>
-									<td id="specific" width="20%">구매일시</td>
 								</tr>
 							<%
 								while(rs.next()){%>
 									<tr id="specific" align="center">	
-										<td id="specific" align="center"><img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"></td>
+										<%if(rs.getString("title")==null){ %>
+										<td id="specific" align="center"> </td>
+										<%}else{ %>
 										<td id="specific" align="center"><%=rs.getString("title") %></td>
+										<%} %>
+										
+										<%if(rs.getString("seller")==null){ %>
+										<td id="specific" align="center"> </td>
+										<%}else{ %>
+										<td id="specific" align="center"><%=rs.getString("seller") %></td>
+										<%} %>
+										
+										<%if(rs.getString("buyer")==null){ %>
+										<td id="specific" align="center"> </td>
+										<%}else{ %>
 										<td id="specific" align="center"><%=rs.getString("buyer") %></td>
+										<%} %>
+										
+										<%if(rs.getString("cnt")==null){ %>
+										<td id="specific" align="center"> </td>
+										<%}else{ %>
+										<td id="specific" align="center"><%=rs.getString("cnt") %></td>
+										<%} %>
+										
+										<%if(rs.getString("price")==null){ %>
+										<td id="specific" align="center"> </td>
+										<%}else{ %>
 										<td id="specific" align="center"><%=rs.getString("price") %></td>
-										<td id="specific" align="center"><%=rs.getString("bought_date") %></td>
+										<%} %>
 									</tr>
 								<%}//while
 							%>

@@ -34,9 +34,9 @@
                 <table width="100%" height="50px">
                     <tr>
                        <td width="30%"></td>
-                        <td class="menu_in"><a href="index.jsp" target="area">전체도서</a></td>
-                        <td class="menu_in"><a href="recentBook.jsp" target="area">신간도서</a></td>
-                        <td class="menu_in"><a href="oldBook.jsp" target="area">중고도서</a></td>
+                        <td class="menu_in"><a href="index.jsp">전체도서</a></td>
+                        <td class="menu_in"><a href="recentBook.jsp">신간도서</a></td>
+                        <td class="menu_in"><a href="oldBook.jsp">중고도서</a></td>
                         <td class="menu_in"><a onclick="check()">마이페이지</a></td>
                         <td width="30%"></td>
                     </tr>

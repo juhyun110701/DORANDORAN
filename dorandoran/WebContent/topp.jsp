@@ -27,7 +27,7 @@
     <table id="whole">
         <tr>
             <td width="45%"></td>
-            <td width="10%"><a href="index.jsp"><img src="img/logo.png" width="80%"></a></td>
+            <td width="10%"><a href="indexx.jsp"><img src="img/logo.png" width="80%"></a></td>
             <td width="45%" style="padding-left:20%;">
             <div id="login"></div>
                 		<div id="whilelog"><font style="color:#f54e42;"><%=id %></font>님 로그인 중입니다</div><p>

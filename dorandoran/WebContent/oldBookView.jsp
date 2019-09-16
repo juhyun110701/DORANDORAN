@@ -84,7 +84,7 @@ b{
 					try{
 						conn=DBConnection.getCon();
 						
-						String sql="select * from old_book where title=?";
+						String sql="select title, writer, publisher, publish_date, price, genres.genre as genre, buyer, seller, status, image from old_book, genres where old_book.genre=genres.genre_num AND title=?";
 						
 						pstmt=conn.prepareStatement(sql);
 						pstmt.setString(1,title);

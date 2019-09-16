@@ -295,3 +295,95 @@
 9월 14, 2019 24:16:51.55 [10612:12116:0914/001651.550:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
 9월 14, 2019 24:18:14.71 [10612:12116:0914/001814.712:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
 9월 14, 2019 24:22:09.02 [10612:12116:0914/002209.029:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+
+9월 15, 2019 01:59:28.93 NEW SESSION
+9월 15, 2019 01:59:28.94 [6604:5212:0915/015928.927:ERROR:CONSOLE(1)] "Uncaught SecurityError: Blocked a frame with origin "https://accounts.google.com" from accessing a frame with origin "chrome-search://local-ntp".  The frame requesting access has a protocol of "https", the frame being accessed has a protocol of "chrome-search". Protocols must match.
+9월 15, 2019 01:59:29.24 ", source: https://accounts.google.com/ListAccounts?listPages=0&pid=243&gpsia=1&source=ogb&mo=1&mn=1&hl=ko&origin=chrome-search%3A%2F%2Flocal-ntp&ts=157 (1)
+9월 15, 2019 02:36:07.85 [6604:2108:0915/023607.852:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 05:36:11.54 [6604:5212:0915/053611.549:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 08:22:21.68 [6604:2108:0915/082221.681:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -7
+9월 15, 2019 08:22:23.24 [6604:5212:0915/082223.245:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 08:22:23.25 [6604:9652:0915/082223.250:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 08:25:05.88 [6604:2108:0915/082505.884:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 09:21:47.69 [6604:2108:0915/092147.690:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 12:21:50.53 [6604:5212:0915/122150.533:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 12:22:07.01 [6604:2108:0915/122207.015:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 13:26:24.51 [6604:5212:0915/132624.517:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 13:26:25.76 [6604:2108:0915/132625.766:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 13:26:25.88 [6604:9652:0915/132625.889:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:26:31.81 [6604:9652:0915/132631.816:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:26:31.81 [6604:2108:0915/132631.818:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+9월 15, 2019 13:26:40.46 [6604:2108:0915/132640.467:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 13:26:40.47 [6604:9652:0915/132640.475:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:26:52.52 [6604:2108:0915/132652.520:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+9월 15, 2019 13:26:52.52 [6604:9652:0915/132652.521:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:27:04.53 [6604:9652:0915/132704.529:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:27:23.59 [6604:5212:0915/132723.592:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 13:27:40.52 [6604:2108:0915/132740.529:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+9월 15, 2019 13:27:40.53 [6604:9652:0915/132740.531:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:36:02.18 [6604:2108:0915/133602.189:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 13:36:02.19 [6604:9652:0915/133602.191:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:36:03.36 [6604:2108:0915/133603.363:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 13:45:51.58 [6604:9652:0915/134551.588:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:45:51.59 [6604:9652:0915/134551.594:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:46:01.24 [6604:2108:0915/134601.243:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 13:46:01.27 [6604:9652:0915/134601.272:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:46:09.37 [6604:2108:0915/134609.371:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 13:46:09.37 [6604:9652:0915/134609.373:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:46:12.39 [6604:2108:0915/134612.392:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -106
+9월 15, 2019 13:46:12.39 [6604:9652:0915/134612.392:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 13:50:06.29 [6604:2108:0915/135006.292:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 13:56:37.93 [6604:2108:0915/135637.938:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 13:57:08.30 [6604:2108:0915/135708.302:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 14:03:24.87 [6604:2108:0915/140324.872:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 15:14:18.76 [6604:5212:0915/151418.766:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 15:14:18.77 [6604:9652:0915/151418.774:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 15:14:18.80 [6604:9652:0915/151418.804:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 16:40:48.66 [6604:2108:0915/164048.669:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 15, 2019 16:40:48.67 [6604:9652:0915/164048.669:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 19:40:51.61 [6604:5212:0915/194051.611:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 19:40:51.61 [6604:9652:0915/194051.615:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 19:40:51.61 [6604:9652:0915/194051.619:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 19:41:00.68 [6604:9652:0915/194100.680:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 19:41:04.99 [6604:2108:0915/194104.996:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 19:41:06.50 [6604:9652:0915/194106.509:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 19:41:08.54 [6604:2108:0915/194108.545:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 21:38:37.57 [6604:5212:0915/213837.576:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 21:38:37.58 [6604:2108:0915/213837.580:ERROR:checkin_request.cc(219)] Failed to get checkin response. Fetcher failed. Retrying.
+9월 15, 2019 21:38:37.58 [6604:9652:0915/213837.584:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 21:38:37.59 [6604:9652:0915/213837.592:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 21:38:49.68 [6604:2108:0915/213849.681:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 21:38:49.73 [6604:9652:0915/213849.731:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 21:38:57.22 [6604:9652:0915/213857.226:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 21:38:57.22 [6604:2108:0915/213857.226:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -105
+9월 15, 2019 21:39:07.72 [6604:2108:0915/213907.723:ERROR:checkin_request.cc(219)] Failed to get checkin response. Fetcher failed. Retrying.
+9월 15, 2019 21:39:09.27 [6604:9652:0915/213909.277:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 21:39:40.85 [6604:5212:0915/213940.850:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 15, 2019 21:39:48.37 [6604:2108:0915/213948.378:ERROR:checkin_request.cc(219)] Failed to get checkin response. Fetcher failed. Retrying.
+9월 15, 2019 21:40:18.23 [6604:2108:0915/214018.236:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 15, 2019 21:40:18.25 [6604:9652:0915/214018.250:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 15, 2019 22:13:23.87 [6604:2108:0915/221323.872:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 16, 2019 24:26:32.69 [6604:5212:0916/002632.692:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 03:26:46.67 [6604:5212:0916/032646.671:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 03:26:48.69 [6604:9652:0916/032646.687:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 16, 2019 03:26:52.36 [6604:9652:0916/032652.366:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 16, 2019 03:26:53.77 [6604:9652:0916/032653.779:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 16, 2019 03:27:01.04 [6604:9652:0916/032701.046:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 16, 2019 03:27:03.37 [6604:5212:0916/032703.376:ERROR:account_info_fetcher.cc(59)] OnGetTokenFailure: Connection failed (-331).
+9월 16, 2019 12:47:09.54 [6604:9652:0916/032704.013:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates
+9월 16, 2019 12:47:10.92 [6604:2108:0916/124710.928:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 16, 2019 12:47:11.35 [6604:5212:0916/124711.352:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 12:47:29.62 [6604:15104:0916/124729.625:ERROR:gcm_store_impl.cc(629)] LevelDB remove failed: NotFound: 
+9월 16, 2019 12:47:29.62 [6604:2108:0916/124729.625:ERROR:mcs_client.cc(525)] GCM Update failed!
+9월 16, 2019 12:48:37.10 [6604:2108:0916/124837.104:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 16, 2019 12:48:40.29 [6604:5212:0916/124840.292:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 15:25:54.51 [6604:5212:0916/152554.515:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 16:21:36.01 [6604:2108:0916/162136.012:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 16, 2019 17:24:17.22 [6604:2108:0916/172417.224:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 16, 2019 19:16:11.56 [6604:5212:0916/191611.569:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 19:16:12.76 [6604:2108:0916/191612.769:ERROR:connection_factory_impl.cc(413)] Failed to connect to MCS endpoint with error -21
+9월 16, 2019 19:20:09.41 [6604:2108:0916/192009.413:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 16, 2019 20:26:16.85 [6604:2108:0916/202616.838:ERROR:socket_stream.cc(219)] Closing stream with result -2
+9월 16, 2019 20:26:19.78 [6604:5212:0916/202619.783:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 21:51:09.59 [6604:5212:0916/215109.593:ERROR:gcm_channel_status_request.cc(146)] GCM channel request failed.
+9월 16, 2019 21:51:09.59 [6604:9652:0916/215109.593:ERROR:get_updates_processor.cc(246)] PostClientToServerMessage() failed during GetUpdates

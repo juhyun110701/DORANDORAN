@@ -75,8 +75,8 @@
                        </tr>
                        <tr>
                        		<td colspan=2 align="center">
-                       			<input type="button" id="idforget" class="btn" value="아이디 찾기" onclick="location.href='idforget.jsp'">
-                       		    <input type="button" id="pwforget" class="btn" value="비밀번호 찾기" onclick="location.href='pwforget.jsp'">
+                       			<input type="button" id="idforget" class="btn" value="아이디 찾기" onclick="location.href='idSearch.jsp'">
+                       		    <input type="button" id="pwforget" class="btn" value="비밀번호 찾기" onclick="location.href='pwSearch.jsp'">
                        		</td>
                        </tr>
                    </table>

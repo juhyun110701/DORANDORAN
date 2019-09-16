@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>도란도란 : 판매목록</title>
+<title>도란도란 : 클라이언트 목록</title>
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 <style>
@@ -48,6 +48,17 @@
 #mbox a{
     color:#ed6853;
 }
+#bbox{
+    background-color:#311b1b;
+    color:#15a100;
+    border-radius:10px;
+    padding:3%;
+    margin-bottom:1%;
+}
+
+#bbox a{
+    color:#15a100;
+}
 .thumbnail{
 	width:100px;
 	height:150px;
@@ -62,17 +73,6 @@ b:hover{
 	border: 2px solid #311b1b;
 	background-color:lightgoldenrodyellow;
 	border-collapse:collapse;
-}
-#bbox{
-    background-color:#311b1b;
-    color:#15a100;
-    border-radius:10px;
-    padding:3%;
-    margin-bottom:1%;
-}
-
-#bbox a{
-    color:#15a100;
 }
 #ybox{
     background-color:#311b1b;
@@ -141,37 +141,34 @@ b:hover{
 	<tr>
 		<td>
 			<div id="box" align="center">
-				<h2>중고도서 판매목록</h2>
+				<h2>회원 관리 목록</h2>
 				<%				
 					//db연결
 					Connection conn=null;
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select * from bought where seller=? order by bought_date desc";
+					String sql="select * from MEMVIEW";
 					
 					try{
 						conn=DBConnection.getCon();
 						pstmt=conn.prepareStatement(sql);
-						pstmt.setString(1,id);
 						rs=pstmt.executeQuery();
 						%>
 						<table width="110%" align="center" id="specific">
 								<tr align="center" style="color:#ed6853;font-size:20px;" id="specific">
-									<td id="specific" width="20%">표지</td>
-									<td id="specific" width="20%">제목</td>
-									<td id="specific" width="20%">구매자</td>
-									<td id="specific" width="20%">가격</td>
-									<td id="specific" width="20%">구매일시</td>
+									<td id="specific" width="20%">아이디</td>
+									<td id="specific" width="20%">이름</td>
+									<td id="specific" width="20%">이메일</td>
+									<td id="specific" width="20%">전화번호</td>
 								</tr>
 							<%
 								while(rs.next()){%>
 									<tr id="specific" align="center">	
-										<td id="specific" align="center"><img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"></td>
-										<td id="specific" align="center"><%=rs.getString("title") %></td>
-										<td id="specific" align="center"><%=rs.getString("buyer") %></td>
-										<td id="specific" align="center"><%=rs.getString("price") %></td>
-										<td id="specific" align="center"><%=rs.getString("bought_date") %></td>
+										<td id="specific" align="center"><%=rs.getString("id") %></td>
+										<td id="specific" align="center"><%=rs.getString("name") %></td>
+										<td id="specific" align="center"><%=rs.getString("email") %></td>
+										<td id="specific" align="center"><%=rs.getString("tel") %></td>
 									</tr>
 								<%}//while
 							%>

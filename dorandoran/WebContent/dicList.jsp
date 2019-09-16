@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>도란도란 : 판매목록</title>
+<title>도란도란 : 구매목록</title>
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 <style>
@@ -115,7 +115,7 @@ b:hover{
            		<div id="dbox" align="center"><a href="boughtBook.jsp">구매목록</a></div>
            	<%} %>
            	<div id="dbox" align="center"><a href="soldBook.jsp">중고도서 판매목록</a></div>
-           	<div id="dbox" align="center"><a href="pwChange.jsp">비밀번호 변경</a></div>
+           	<div id="dbox" align="center"><a href="#">비밀번호 변경</a></div>
            	<%if(id.equals("admin")){ %>
            		<br>
            		<div id="mbox" align="center"><a href="bookEnroll.jsp">도서 등록</a></div>
@@ -141,37 +141,32 @@ b:hover{
 	<tr>
 		<td>
 			<div id="box" align="center">
-				<h2>중고도서 판매목록</h2>
+				<h2>테이블 정보</h2>
 				<%				
 					//db연결
 					Connection conn=null;
 					PreparedStatement pstmt=null;
 					ResultSet rs=null;
 					
-					String sql="select * from bought where seller=? order by bought_date desc";
+					String sql="SELECT table_name, data_type, data_length FROM cols";
 					
 					try{
 						conn=DBConnection.getCon();
 						pstmt=conn.prepareStatement(sql);
-						pstmt.setString(1,id);
 						rs=pstmt.executeQuery();
 						%>
 						<table width="110%" align="center" id="specific">
 								<tr align="center" style="color:#ed6853;font-size:20px;" id="specific">
-									<td id="specific" width="20%">표지</td>
-									<td id="specific" width="20%">제목</td>
-									<td id="specific" width="20%">구매자</td>
-									<td id="specific" width="20%">가격</td>
-									<td id="specific" width="20%">구매일시</td>
+									<td id="specific" width="20%">테이블 이름</td>
+									<td id="specific" width="20%">데이터 타입</td>
+									<td id="specific" width="20%">데이터 사이즈</td>
 								</tr>
 							<%
 								while(rs.next()){%>
 									<tr id="specific" align="center">	
-										<td id="specific" align="center"><img class="thumbnail" src="oldImgView.jsp?title=<%=rs.getString("title")%>"></td>
-										<td id="specific" align="center"><%=rs.getString("title") %></td>
-										<td id="specific" align="center"><%=rs.getString("buyer") %></td>
-										<td id="specific" align="center"><%=rs.getString("price") %></td>
-										<td id="specific" align="center"><%=rs.getString("bought_date") %></td>
+										<td id="specific" align="center"><%=rs.getString("table_name") %></td>
+										<td id="specific" align="center"><%=rs.getString("data_type") %></td>
+										<td id="specific" align="center"><%=rs.getString("data_length") %></td>
 									</tr>
 								<%}//while
 							%>
@@ -179,7 +174,7 @@ b:hover{
 						<%
 					}
 					catch(SQLException e){
-						System.out.println(e.getMessage());
+						e.printStackTrace();
 					}
 					finally{
 						try{
@@ -196,6 +191,7 @@ b:hover{
 				</tr>
 			</table>
            	</div>
+           	
            	<p>
            </td>
            <td width="5%"></td>

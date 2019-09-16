@@ -59,7 +59,7 @@
 		Connection conn=DBConnection.getCon();
 		PreparedStatement pstmt=null;
 		
-		StringBuffer sql=new StringBuffer("insert into old_book(title, writer, publisher, publish_date, price, genre, seller, image) values(?,?,?,?,?,?,?,?)");
+		StringBuffer sql=new StringBuffer("insert into old_book(num, title, writer, publisher, publish_date, price, genre, seller, image) values(old_book_seq.nextval,?,?,?,?,?,?,?,?)");
 		byte[] buf=FileUtils.readFileToByteArray(file);
 		pstmt = conn.prepareStatement(sql.toString());
 		

@@ -9,7 +9,7 @@ public class DBConnection {
 		Connection conn=null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@192.168.219.107:1521:xe";
+			String url = "jdbc:oracle:thin:@10.96.123.224:1521:xe";
 		    String user = "doran";
 		    String pass = "1234";
 		    
